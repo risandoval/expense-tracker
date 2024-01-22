@@ -9,6 +9,8 @@ import {
     StyledSafeAreaView,
     StyledButtonContainer,
 } from './styles'
+import styled from 'styled-components/native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const StyledScrollView = styled.ScrollView`
     height: 100%;
@@ -30,21 +32,21 @@ const StyledCard = styled.View`
     border-radius: 10px;
 `
 
-const RowCards = styled.View`
+const StyledRowCards = styled.View`
     display: flex;
     flex-direction: row;
     margin-bottom: 50px;
     gap: 10px;
 `
 
-const RowCardsViews = styled(StyledCard)`
+const StyledRowCardsViews = styled(StyledCard)`
     flex:1;
 `
 
-const RecentTransactions = styled(StyledMainView)`
+const StyledRecentTransactions = styled(StyledMainView)`
 `
 
-const RecentTransactionCard = styled.View`
+const StyledRecentTransactionCard = styled.View`
     background-color: #1e1e1e50;
     display: flex;
     flex-direction: row;
@@ -53,19 +55,19 @@ const RecentTransactionCard = styled.View`
     border-radius: 10px;
 `
 
-const RecentTransactionCardLeft = styled.View`
+const StyledRecentTransactionCardLeft = styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
 `
 
-const RecentTransactionTitle = styled.View`
+const StyledRecentTransactionTitle = styled.View`
     display: flex;
     flex-direction: column;
 `
 
-const RecentTransactionCardRight = styled.View`
+const StyledRecentTransactionCardRight = styled.View`
     display: flex;
     flex-direction: column;
     margin-left: auto;
