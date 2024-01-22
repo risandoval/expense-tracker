@@ -20,7 +20,6 @@ const StyledMainView = styled.View`
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 10rem;
 `
 
 const StyledCard = styled.View`
@@ -34,7 +33,6 @@ const StyledCard = styled.View`
 const RowCards = styled.View`
     display: flex;
     flex-direction: row;
-    gap: 10rem;
     margin-bottom: 50px;
 `
 
@@ -43,7 +41,6 @@ const RowCardsViews = styled(StyledCard)`
 `
 
 const RecentTransactions = styled(StyledMainView)`
-    gap: 5rem;
 `
 
 const RecentTransactionCard = styled.View`
@@ -59,19 +56,16 @@ const RecentTransactionCardLeft = styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20rem;
 `
 
 const RecentTransactionTitle = styled.View`
     display: flex;
     flex-direction: column;
-    gap: 5rem
 `
 
 const RecentTransactionCardRight = styled.View`
     display: flex;
     flex-direction: column;
-    gap: 5rem;
     margin-left: auto;
 `
 
@@ -97,7 +91,7 @@ const Home = () => {
     }, []);
 
     return (
-        <SafeAreaView>
+        <StyledSafeAreaView>
             <GestureHandlerRootView>
                 <BottomSheetModalProvider>
                     <StyledScrollView>
@@ -142,7 +136,7 @@ const Home = () => {
                     </BottomSheetModal>
                 </BottomSheetModalProvider>
             </GestureHandlerRootView>
-        </SafeAreaView>
+        </StyledSafeAreaView>
     )
 }
 

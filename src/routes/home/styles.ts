@@ -54,7 +54,7 @@ const StyledBottomSheetModal = styled.View`
 
 export { 
 	StyledSafeAreaView,
-  	StyledScrollView,
+  StyledScrollView,
 	StyledMainView,
 	StyledHomeText,
 	StyledButtonContainer,
