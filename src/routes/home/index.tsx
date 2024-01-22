@@ -8,9 +8,6 @@ import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet
 import { AntDesign } from '@expo/vector-icons';
 import {
     StyledSafeAreaView,
-    StyledScrollView,
-    StyledMainView,
-    StyledHomeText,
     StyledButtonContainer,
 } from './styles'
 
@@ -101,34 +98,35 @@ const Home = () => {
 
     return (
         <SafeAreaView>
-            <StyledScrollView>
-                <StyledMainView>
-
-                    <StyledCard>
-                        <Text>Total Balance</Text>
-                    </StyledCard>
-
-                    <RowCards>
-                        <RowCardsViews>
-                            <Text>Total Income</Text>
-                        </RowCardsViews>
-
-                        <RowCardsViews>
-                            <Text>Total Expense</Text>
-                        </RowCardsViews>
-                    </RowCards>
-
-                    <Text>Recent Transactions</Text>
-
-                    <RecentTransactions>
-
-                        <RecentTransactionsMap/>
-
-                    </RecentTransactions>
-                </StyledMainView>
-            </StyledScrollView>
             <GestureHandlerRootView>
                 <BottomSheetModalProvider>
+                    <StyledScrollView>
+                        <StyledMainView>
+
+                            <StyledCard>
+                                <Text>Total Balance</Text>
+                            </StyledCard>
+
+                            <RowCards>
+                                <RowCardsViews>
+                                    <Text>Total Income</Text>
+                                </RowCardsViews>
+
+                                <RowCardsViews>
+                                    <Text>Total Expense</Text>
+                                </RowCardsViews>
+                            </RowCards>
+
+                            <Text>Recent Transactions</Text>
+
+                            <RecentTransactions>
+
+                                <RecentTransactionsMap/>
+
+                            </RecentTransactions>
+                        </StyledMainView>
+                    </StyledScrollView>
+
                     <StyledButtonContainer onPress={handlePresentModalPress}>
                         <AntDesign name="pluscircle" size={50} color="black" />
                     </StyledButtonContainer>
