@@ -20,6 +20,7 @@ const StyledMainView = styled.View`
     display: flex;
     flex-direction: column;
     height: 100%;
+    gap: 10px;
 `
 
 const StyledCard = styled.View`
@@ -34,6 +35,7 @@ const RowCards = styled.View`
     display: flex;
     flex-direction: row;
     margin-bottom: 50px;
+    gap: 10px;
 `
 
 const RowCardsViews = styled(StyledCard)`
@@ -56,6 +58,7 @@ const RecentTransactionCardLeft = styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 10px;
 `
 
 const RecentTransactionTitle = styled.View`
