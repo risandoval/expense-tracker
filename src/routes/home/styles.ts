@@ -1,88 +1,62 @@
-import styled from 'styled-components/native'
+import styled from "styled-components/native";
+import { Platform, StatusBar } from "react-native";
+
+const getStatusBarHeight = () => {
+  return Platform.OS === "android" ? StatusBar.currentHeight || 0 : 0;
+};
+
+const StyledSafeAreaView = styled.SafeAreaView`
+  flex: 1;
+  padding-top: ${getStatusBarHeight()}px;
+`;
 
 const StyledScrollView = styled.ScrollView`
-    height: 100%;
-    padding: 10px;
+	height: 100%;
+	padding: 5px;
 `
 
 const StyledMainView = styled.View`
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 10rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
 `
 
-const StyledCard = styled.View`
-    background-color: #1e1e1e50;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 10px;
+const StyledHomeText =styled.Text`
+	font-size: 16px;
+	text-align: center;
 `
 
-const StyledRowCards = styled.View`
-    display: flex;
-    flex-direction: row;
-    gap: 10rem;
-    margin-bottom: 50px;
-`
+const StyledButtonContainer = styled.TouchableOpacity`
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+`;
 
-const StyledRowCardsViews = styled(StyledCard)`
-    flex:1;
-`
+//bottom drawer styles below
+const StyledBottomSheetModal = styled.View`
+  background-color: white;
+  padding: 16px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  ${Platform.OS === "ios"
+    ? `
+    shadowColor: #000;
+    shadowOffset: { width: 0, height: -3 };
+    shadowOpacity: 0.1;
+    shadowRadius: 5;
+  `
+    : `
+    elevation: 5;
+  `}
+`;
 
-const StyledRecentTransactions = styled(StyledMainView)`
-    gap: 5rem;
-`
 
-const StyledRecentTransactionCard = styled.View`
-    background-color: #1e1e1e50;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 20px;
-    border-radius: 10px;
-`
-
-const StyledRecentTransactionCardLeft = styled.View`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20rem;
-`
-
-const StyledRecentTransactionTitle = styled.View`
-    display: flex;
-    flex-direction: column;
-    gap: 5rem
-`
-
-const StyledRecentTransactionCardRight = styled.View`
-    display: flex;
-    flex-direction: column;
-    gap: 5rem;
-    margin-left: auto;
-`
-
-const SampleIcon = styled.View`
-    background-color: #1e1e1e50;
-    min-height: 15px;
-    height: 35px;
-    aspect-ratio: 1/1;
-    border-radius: 100%;
-
-`
-
-export {
-    StyledScrollView,
-    StyledMainView,
-    StyledCard,
-    StyledRowCards,
-    StyledRowCardsViews,
-    StyledRecentTransactions,
-    StyledRecentTransactionCard,
-    StyledRecentTransactionCardLeft,
-    StyledRecentTransactionTitle,
-    StyledRecentTransactionCardRight,
-    SampleIcon
-}
+export { 
+	StyledSafeAreaView,
+  StyledScrollView,
+	StyledMainView,
+	StyledHomeText,
+	StyledButtonContainer,
+	StyledBottomSheetModal
+};
