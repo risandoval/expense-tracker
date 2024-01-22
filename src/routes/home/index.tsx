@@ -74,7 +74,7 @@ const SampleIcon = styled.View`
     min-height: 15px;
     height: 35px;
     aspect-ratio: 1/1;
-    border-radius: 100%;
+    border-radius: 9999px;
 
 `
 
