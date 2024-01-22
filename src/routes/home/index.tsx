@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo, useRef } from 'react'
 import { HomeDrawer } from './components/HomeDrawer';
 import { StyleSheet, SafeAreaView, ScrollView, Text, View } from 'react-native'
-import styled from 'styled-components/native'
 import { recentTransactions } from '../../dummy_data/recentTransactions'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
@@ -10,6 +9,9 @@ import {
     StyledSafeAreaView,
     StyledButtonContainer,
 } from './styles'
+import styled from 'styled-components/native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { StyledBo, StyledBodyText, StyledBodyTextdyText } from '../../styles/global';
 
 const StyledScrollView = styled.ScrollView`
     height: 100%;
@@ -20,31 +22,33 @@ const StyledMainView = styled.View`
     display: flex;
     flex-direction: column;
     height: 100%;
+    gap: 10px;
 `
 
 const StyledCard = styled.View`
-    background-color: #1e1e1e50;
+    background-color: #1e1e1e;
     align-items: center;
     justify-content: center;
     padding: 20px;
     border-radius: 10px;
 `
 
-const RowCards = styled.View`
+const StyledRowCards = styled.View`
     display: flex;
     flex-direction: row;
     margin-bottom: 50px;
+    gap: 10px;
 `
 
-const RowCardsViews = styled(StyledCard)`
+const StyledRowCardsViews = styled(StyledCard)`
     flex:1;
 `
 
-const RecentTransactions = styled(StyledMainView)`
+const StyledRecentTransactions = styled(StyledMainView)`
 `
 
-const RecentTransactionCard = styled.View`
-    background-color: #1e1e1e50;
+const StyledRecentTransactionCard = styled.View`
+    background-color: #1e1e1e;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -52,30 +56,35 @@ const RecentTransactionCard = styled.View`
     border-radius: 10px;
 `
 
-const RecentTransactionCardLeft = styled.View`
+const StyledRecentTransactionCardLeft = styled.View`
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 10px;
 `
 
-const RecentTransactionTitle = styled.View`
+const StyledRecentTransactionTitle = styled.View`
     display: flex;
     flex-direction: column;
 `
 
-const RecentTransactionCardRight = styled.View`
+const StyledRecentTransactionCardRight = styled.View`
     display: flex;
     flex-direction: column;
     margin-left: auto;
 `
 
 const SampleIcon = styled.View`
-    background-color: #1e1e1e50;
+    background-color: #fafafa;
     min-height: 15px;
     height: 35px;
     aspect-ratio: 1/1;
     border-radius: 9999px;
 
+`
+
+const StyledText = styled.Text`
+    color: #fafafa;
 `
 
 const Home = () => {
@@ -97,27 +106,29 @@ const Home = () => {
                     <StyledScrollView>
                         <StyledMainView>
 
+                    <DateTimePicker maximumDate={new Date()} value={new Date()}/>
+
                             <StyledCard>
-                                <Text>Total Balance</Text>
+                                <StyledBodyText>Total Balance</StyledBodyText>
                             </StyledCard>
 
-                            <RowCards>
-                                <RowCardsViews>
-                                    <Text>Total Income</Text>
-                                </RowCardsViews>
+                    <StyledRowCards>
+                        <StyledRowCardsViews>
+                            <StyledBodyText>Total Income</StyledBodyText>
+                        </StyledRowCardsViews>
 
-                                <RowCardsViews>
-                                    <Text>Total Expense</Text>
-                                </RowCardsViews>
-                            </RowCards>
+                        <StyledRowCardsViews>
+                            <StyledBodyText>Total Expense</StyledBodyText>
+                        </StyledRowCardsViews>
+                    </StyledRowCards>
 
-                            <Text>Recent Transactions</Text>
+                            <StyledBodyText>Recent Transactions</StyledBodyText>
 
-                            <RecentTransactions>
+                    <StyledRecentTransactions>
 
-                                <RecentTransactionsMap/>
+                        <RecentTransactionsMap />
 
-                            </RecentTransactions>
+                            </StyledRecentTransactions>
                         </StyledMainView>
                     </StyledScrollView>
 
@@ -142,21 +153,21 @@ const Home = () => {
 
 const RecentTransactionsMap = () => {
     return recentTransactions.map((recentTransaction, index) => (
-        <RecentTransactionCard key={index}>
-            <RecentTransactionCardLeft>
+        <StyledRecentTransactionCard key={index}>
+            <StyledRecentTransactionCardLeft>
                 <SampleIcon></SampleIcon>
 
-                <RecentTransactionTitle>
-                    <Text>{recentTransaction.title}</Text>
-                    <Text>{recentTransaction.category}</Text>
-                </RecentTransactionTitle>
-            </RecentTransactionCardLeft>
+                <StyledRecentTransactionTitle>
+                    <StyledText>{recentTransaction.title}</StyledText>
+                    <StyledText>{recentTransaction.category}</StyledText>
+                </StyledRecentTransactionTitle>
+            </StyledRecentTransactionCardLeft>
 
-            <RecentTransactionCardRight>
-                <Text>{recentTransaction.amount}</Text>
-                <Text>{recentTransaction.date}</Text>
-            </RecentTransactionCardRight>
-        </RecentTransactionCard>
+            <StyledRecentTransactionCardRight>
+                <StyledText>{recentTransaction.amount}</StyledText>
+                <StyledText>{recentTransaction.date}</StyledText>
+            </StyledRecentTransactionCardRight>
+        </StyledRecentTransactionCard>
     ))
 }
 
