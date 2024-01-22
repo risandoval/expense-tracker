@@ -11,6 +11,7 @@ import {
 } from './styles'
 import styled from 'styled-components/native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { StyledBo, StyledBodyText, StyledBodyTextdyText } from '../../styles/global';
 
 const StyledScrollView = styled.ScrollView`
     height: 100%;
@@ -25,7 +26,7 @@ const StyledMainView = styled.View`
 `
 
 const StyledCard = styled.View`
-    background-color: #1e1e1e50;
+    background-color: #1e1e1e;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -47,7 +48,7 @@ const StyledRecentTransactions = styled(StyledMainView)`
 `
 
 const StyledRecentTransactionCard = styled.View`
-    background-color: #1e1e1e50;
+    background-color: #1e1e1e;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -74,12 +75,16 @@ const StyledRecentTransactionCardRight = styled.View`
 `
 
 const SampleIcon = styled.View`
-    background-color: #1e1e1e50;
+    background-color: #fafafa;
     min-height: 15px;
     height: 35px;
     aspect-ratio: 1/1;
     border-radius: 9999px;
 
+`
+
+const StyledText = styled.Text`
+    color: #fafafa;
 `
 
 const Home = () => {
@@ -104,20 +109,20 @@ const Home = () => {
                     <DateTimePicker maximumDate={new Date()} value={new Date()}/>
 
                             <StyledCard>
-                                <Text>Total Balance</Text>
+                                <StyledBodyText>Total Balance</StyledBodyText>
                             </StyledCard>
 
                     <StyledRowCards>
                         <StyledRowCardsViews>
-                            <Text>Total Income</Text>
+                            <StyledBodyText>Total Income</StyledBodyText>
                         </StyledRowCardsViews>
 
                         <StyledRowCardsViews>
-                            <Text>Total Expense</Text>
+                            <StyledBodyText>Total Expense</StyledBodyText>
                         </StyledRowCardsViews>
                     </StyledRowCards>
 
-                            <Text>Recent Transactions</Text>
+                            <StyledBodyText>Recent Transactions</StyledBodyText>
 
                     <StyledRecentTransactions>
 
@@ -153,14 +158,14 @@ const RecentTransactionsMap = () => {
                 <SampleIcon></SampleIcon>
 
                 <StyledRecentTransactionTitle>
-                    <Text>{recentTransaction.title}</Text>
-                    <Text>{recentTransaction.category}</Text>
+                    <StyledText>{recentTransaction.title}</StyledText>
+                    <StyledText>{recentTransaction.category}</StyledText>
                 </StyledRecentTransactionTitle>
             </StyledRecentTransactionCardLeft>
 
             <StyledRecentTransactionCardRight>
-                <Text>{recentTransaction.amount}</Text>
-                <Text>{recentTransaction.date}</Text>
+                <StyledText>{recentTransaction.amount}</StyledText>
+                <StyledText>{recentTransaction.date}</StyledText>
             </StyledRecentTransactionCardRight>
         </StyledRecentTransactionCard>
     ))
