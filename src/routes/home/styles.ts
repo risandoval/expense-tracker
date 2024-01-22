@@ -49,7 +49,44 @@ const StyledBottomSheetModal = styled.View`
     : `
     elevation: 5;
   `}
-`;
+`
+
+const StyledColumnView = styled.View`
+  display: flex;
+  flex-direction: column;
+`
+
+const StyledRowView = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+`
+
+const StyledDrawerButton = styled.TouchableOpacity`
+  background-color: trasnparent;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 5px;
+  width: 40%;
+`
+
+const StyledButtonText = styled.Text`
+  text-align: center;
+`
+
+const StyledFormCont = styled.View`
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+`
+
+const StyledTextInput = styled.TextInput`
+  flex: 4;
+  border-bottom-width: 1px;
+`
 
 
 export { 
@@ -58,5 +95,11 @@ export {
 	StyledMainView,
 	StyledHomeText,
 	StyledButtonContainer,
-	StyledBottomSheetModal
+	StyledBottomSheetModal,
+  StyledColumnView,
+  StyledRowView,
+  StyledDrawerButton,
+  StyledButtonText,
+  StyledFormCont,
+  StyledTextInput,
 };

@@ -80,7 +80,7 @@ const SampleIcon = styled.View`
 
 const Home = () => {
     const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-    const snapPoints = useMemo(() => ['25%', '90%'], []);
+    const snapPoints = useMemo(() => ['50%', '90%'], []);
 
     const handlePresentModalPress = useCallback(() => {
         bottomSheetModalRef.current?.present();
