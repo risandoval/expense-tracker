@@ -6,8 +6,6 @@ const MainNavigation = () => {
     return (
         <NavigationContainer>
             <MainStack/>
-
-
         </NavigationContainer>
     )
 }

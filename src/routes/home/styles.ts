@@ -2,12 +2,12 @@ import styled from "styled-components/native";
 import { Platform, StatusBar } from "react-native";
 
 const getStatusBarHeight = () => {
-  return Platform.OS === "android" ? StatusBar.currentHeight || 0 : 0;
+    return Platform.OS === "android" ? StatusBar.currentHeight || 0 : 0;
 };
 
 const StyledSafeAreaView = styled.SafeAreaView`
-  flex: 1;
-  padding-top: ${getStatusBarHeight()}px;
+    flex: 1;
+    padding-top: ${getStatusBarHeight()}px;
 `;
 
 const StyledScrollView = styled.ScrollView`
@@ -22,7 +22,7 @@ const StyledMainView = styled.View`
 	justify-content: space-around;
 `
 
-const StyledHomeText =styled.Text`
+const StyledHomeText = styled.Text`
 	font-size: 16px;
 	text-align: center;
 `
@@ -40,23 +40,23 @@ const StyledBottomSheetModal = styled.View`
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   ${Platform.OS === "ios"
-    ? `
+        ? `
     shadowColor: #000;
     shadowOffset: { width: 0, height: -3 };
     shadowOpacity: 0.1;
     shadowRadius: 5;
   `
-    : `
+        : `
     elevation: 5;
   `}
 `;
 
 
-export { 
-	StyledSafeAreaView,
-  StyledScrollView,
-	StyledMainView,
-	StyledHomeText,
-	StyledButtonContainer,
-	StyledBottomSheetModal
+export {
+    StyledSafeAreaView,
+    StyledScrollView,
+    StyledMainView,
+    StyledHomeText,
+    StyledButtonContainer,
+    StyledBottomSheetModal
 };
