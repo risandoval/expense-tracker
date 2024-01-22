@@ -15,12 +15,15 @@ import {
     SampleIcon
 } from './styles'
 
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Home = () => {
     return (
         <SafeAreaView>
             <StyledScrollView>
                 <StyledMainView>
+
+                    <DateTimePicker maximumDate={new Date()} value={new Date()}/>
 
                     <StyledCard>
                         <Text>Total Balance</Text>
