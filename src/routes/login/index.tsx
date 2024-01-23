@@ -13,10 +13,18 @@ import {
     StyledAltButtonContainer,
     StyledAltButtonLabel
 } from './styles'
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { ParamListBase } from '@react-navigation/native';
 
-const Login = () => {
+type TLoginProps = NativeStackScreenProps<ParamListBase, 'Login'>
+
+const Login = ({ navigation }: TLoginProps) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleAsGuestPress = () => {
+        navigation.navigate('Home');
+    };
 
     return (
         <StyledSafeAreaView>
@@ -44,6 +52,18 @@ const Login = () => {
                 <StyledSectionView>
                     <StyledAltButtonContainer>
                         <StyledAltButtonLabel>Continue with Google</StyledAltButtonLabel>
+                    </StyledAltButtonContainer>
+                </StyledSectionView>
+
+                <StyledSeparatorContainer>
+                    <StyledSeparatorLine />
+                    <Text>or</Text>
+                    <StyledSeparatorLine />
+                </StyledSeparatorContainer>
+
+                <StyledSectionView>
+                    <StyledAltButtonContainer>
+                        <StyledAltButtonLabel onPress={handleAsGuestPress}>Continue as Guest</StyledAltButtonLabel>
                     </StyledAltButtonContainer>
                 </StyledSectionView>
             </StyledView>

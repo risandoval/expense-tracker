@@ -11,17 +11,16 @@ import { HomeDrawerNavigator } from './HomeDrawerNavigator';
 
 const Stack = createNativeStackNavigator();
 
-
 const MainStack = () => {
     return (
-        <Stack.Navigator 
-        initialRouteName='Home' 
-        screenOptions={{
-            headerShown: false, 
-            contentStyle: {
-                backgroundColor: appColors.background
-            }
-        }}>
+        <Stack.Navigator
+            initialRouteName='Login'
+            screenOptions={{
+                headerShown: false,
+                contentStyle: {
+                    backgroundColor: appColors.background
+                }
+            }}>
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Home" component={HomeDrawerNavigator} />
