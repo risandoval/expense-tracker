@@ -11,7 +11,7 @@ import {
 } from './styles'
 import styled from 'styled-components/native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { StyledBo, StyledBodyText, StyledBodyTextdyText } from '../../styles/global';
+import { StyledBodyText, appColors } from '../../styles/global';
 
 const StyledScrollView = styled.ScrollView`
     height: 100%;
@@ -26,7 +26,7 @@ const StyledMainView = styled.View`
 `
 
 const StyledCard = styled.View`
-    background-color: #1e1e1e;
+    background-color: ${appColors.green};
     align-items: center;
     justify-content: center;
     padding: 20px;
