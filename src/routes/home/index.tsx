@@ -1,6 +1,6 @@
-import React, { useCallback, useMemo, useRef } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { HomeDrawer } from './components/HomeDrawer';
-import { StyleSheet, SafeAreaView, ScrollView, Text, View } from 'react-native'
+import { StyleSheet, SafeAreaView, ScrollView, Text, View, Platform, Button } from 'react-native'
 import { recentTransactions } from '../../dummy_data/recentTransactions'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
@@ -10,7 +10,7 @@ import {
     StyledButtonContainer,
 } from './styles'
 import styled from 'styled-components/native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker, {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
 import { StyledBodyText, appColors } from '../../styles/global';
 
 const StyledScrollView = styled.ScrollView`
@@ -99,6 +99,12 @@ const Home = () => {
         console.log('handleSheetChanges', index);
     }, []);
 
+    const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+    const [dateSelectorMode, setDateSelectorMode] = useState<boolean>(false)
+    const openDatePicker = () => {
+        
+    }
+
     return (
         <StyledSafeAreaView>
             <GestureHandlerRootView>
@@ -106,7 +112,19 @@ const Home = () => {
                     <StyledScrollView>
                         <StyledMainView>
 
-                    <DateTimePicker maximumDate={new Date()} value={new Date()}/>
+                            <Button title={selectedDate.toString()} />
+
+                            {
+                                dateSelectorMode && (
+                                    <DateTimePicker 
+                                    maximumDate={new Date()} 
+                                    value={selectedDate}
+
+                                    />
+                                ) 
+
+                            }
+                            
 
                             <StyledCard>
                                 <StyledBodyText>Total Balance</StyledBodyText>
