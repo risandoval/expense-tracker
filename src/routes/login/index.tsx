@@ -23,7 +23,7 @@ const Login = ({ navigation }: TLoginProps) => {
     const [password, setPassword] = useState('');
 
     const handleAsGuestPress = () => {
-        navigation.navigate('Home');
+        navigation.navigate('HomeNavigator', { screen: "Home" });
     };
 
     return (

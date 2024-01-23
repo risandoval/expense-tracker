@@ -2,6 +2,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react'
 import { appColors } from '../styles/global';
 import { Home } from '../routes/home';
+import { Login } from '../routes/login';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,7 +23,13 @@ const HomeDrawerNavigator = () => {
                 }
             }}>
             <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="Test" component={Home} />
+            <Drawer.Screen
+                name="Login"
+                component={Login}
+                options={{
+                    headerShown: false
+                }}
+            />
         </Drawer.Navigator>
     )
 }
