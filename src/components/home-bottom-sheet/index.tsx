@@ -1,52 +1,28 @@
 import BottomSheet from '@gorhom/bottom-sheet';
-import React, { createRef, useCallback, useMemo, useRef } from 'react'
+import React, { ReactNode } from 'react'
 import { StyleSheet, View } from 'react-native';
-import { NavigationHelpers, ParamListBase } from '@react-navigation/native';
-import { BottomTabNavigationEventMap } from '@react-navigation/bottom-tabs';
 import { HomeDrawer } from '../home-drawer';
+import { useBottomSheetHook } from '../../contexts/BottomSheetContext';
 
-const HomeBottomSheet = ({ navigation }: { navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap> } ) => {
-    const bottomSheetRef = useRef<BottomSheet>(null);
-    const sheetClose = createRef();
-    const snapPoints = useMemo(() => ['80%'], []);
+const HomeBottomSheetContainer = ({ children }: {children: ReactNode}) => {
+    const { bottomSheetRef, snapPoints, handleSheetChange } = useBottomSheetHook();
 
-    const handleSheetChanges = useCallback(
-        (index: number) => {    
-            if (index === -1) {
-                navigation.goBack();
-            }
-        },
-        [navigation],
-    );
-
+    // renders
     return (
-        <View style={styles.container}>
+        <View style={{ flex: 1 }}>
+                {children}
             <BottomSheet
                 ref={bottomSheetRef}
                 index={0}
                 snapPoints={snapPoints}
-                onChange={handleSheetChanges}
-                waitFor={[sheetClose]}
+                animateOnMount={true}
+                onChange={handleSheetChange}
                 enablePanDownToClose
-                animateOnMount
             >
                 <HomeDrawer />
             </BottomSheet>
         </View>
-
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 24,
-        backgroundColor: '#1e1e1e50',
-    },
-    contentContainer: {
-        flex: 1,
-        alignItems: 'center',
-    },
-});
-
-export { HomeBottomSheet }
+export { HomeBottomSheetContainer }

@@ -6,6 +6,7 @@ import { appColors, lightTheme } from '../styles/global'
 import { Text, TouchableOpacity, View, useColorScheme } from 'react-native'
 import styled, { ThemeContext } from 'styled-components/native'
 import { NavigationHelpers, ParamListBase } from '@react-navigation/native'
+import { useBottomSheetHook } from '../contexts/BottomSheetContext'
 
 const BottomTab = createBottomTabNavigator()
 
@@ -18,7 +19,7 @@ const HomeBottomTabNavigator = () => {
             tabBar={props => <TabBar {...props} />}
 
             initialRouteName='Home'
-            
+
             sceneContainerStyle={{
                 backgroundColor: theme?.backgroundColor ?? lightTheme.backgroundColor,
             }}
@@ -84,7 +85,7 @@ const TabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigation })
                     };
 
                     if (index == 1) {
-                        return <BottomSheetButton key={index} navigation={navigation} />
+                        return <BottomSheetButton key={index}/>
                     }
 
                     return (
@@ -110,13 +111,11 @@ const TabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigation })
     )
 }
 
-const BottomSheetButton = ({ navigation }: { navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap> }) => {
-    const handleButtonPress = () => {
-        navigation.navigate('HomeBottomSheet');
-    }
+const BottomSheetButton = () => {
+    const { handleExpandPress } = useBottomSheetHook();
 
     return (
-        <TouchableOpacity onPress={handleButtonPress}>
+        <TouchableOpacity onPress={handleExpandPress}>
             <Text>Testing Lang</Text>
         </TouchableOpacity>
     )
