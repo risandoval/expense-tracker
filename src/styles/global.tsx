@@ -32,8 +32,8 @@ export const appColors = {
 const StyledSafeAreaView = styled.SafeAreaView`
       flex: 1;
 `;
+/* padding-top: ${getStatusBarHeight()}px; dagdag to sa taas*/
 
-/* padding-top: ${getStatusBarHeight()}px; */
 const StyledHeader1 = styled.Text`
     font-size: 28px;
     color: ${p => p.theme.fontColor};

@@ -23,6 +23,7 @@ import {
     Lexend_800ExtraBold,
     Lexend_900Black,
 } from '@expo-google-fonts/lexend';
+import AccountCard from './components/account-card';
 
 
 const Home = () => {
@@ -56,6 +57,7 @@ const Home = () => {
                         <HomeSection label="Accounts">
                             <StyledAccountsView>
                                 <StyledBodyText1>Test</StyledBodyText1>
+                                <AccountCard/>
                             </StyledAccountsView>
                         </HomeSection>
 
