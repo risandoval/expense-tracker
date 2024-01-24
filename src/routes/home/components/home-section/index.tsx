@@ -1,11 +1,14 @@
 import React, { ReactNode } from 'react'
-import { StyledSectionView } from '../../../login/styles'
+import { StyledSectionHeaderView, StyledSectionView } from '../../../login/styles'
 import { StyledHeader1 } from '../../../../styles/global'
 
-const HomeSection = ({label, children}: {label: string, children: ReactNode}) => {
+const HomeSection = ({ label, children }: { label: string, children: ReactNode }) => {
     return (
         <StyledSectionView>
-            <StyledHeader1>{label}</StyledHeader1>
+            <StyledSectionHeaderView>
+                <StyledHeader1>{label}</StyledHeader1>
+            </StyledSectionHeaderView>
+            
             {children}
         </StyledSectionView>
     )

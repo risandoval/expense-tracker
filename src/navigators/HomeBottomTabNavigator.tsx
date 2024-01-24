@@ -17,7 +17,6 @@ const HomeBottomTabNavigator = () => {
     return (
         <BottomTab.Navigator
             tabBar={props => <TabBar {...props} />}
-
             initialRouteName='Home'
 
             sceneContainerStyle={{
@@ -25,11 +24,13 @@ const HomeBottomTabNavigator = () => {
             }}
 
             screenOptions={{
-                headerTitle: '',
+                headerTitle: 'BASTA MAY LAMAN PA TO',
+                headerTitleStyle: {
+                    color: theme?.fontColor ?? lightTheme.fontColor
+                },
                 headerShadowVisible: false,
                 headerStyle: {
-                    // backgroundColor: theme?.backgroundColor ?? lightTheme.backgroundColor
-                    backgroundColor: '#1e1e1e'
+                    backgroundColor: theme?.backgroundColor ?? lightTheme.backgroundColor
                 }
             }}
         >
@@ -53,7 +54,7 @@ const StyledView = styled.View`
     flex-direction: row;
     padding: 30px 5px;
     justify-content: between;
-    background-color: #1e1e1e;
+    background-color: ${p => p.theme.backgroundColor};
 `
 
 const TabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigation }) => {

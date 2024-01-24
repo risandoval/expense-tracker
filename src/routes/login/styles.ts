@@ -14,6 +14,11 @@ const StyledSectionView = styled.View`
     gap: 10px;
 `;
 
+const StyledSectionHeaderView = styled.View`
+    padding: 0px 10px;
+    display: flex;
+`
+
 // Input text
 const StyledInputView = styled.View`
     display: flex;
@@ -72,6 +77,7 @@ const StyledAltButtonLabel = styled.Text`
 export {
     StyledView,
     StyledSectionView,
+    StyledSectionHeaderView,
     StyledInputView,
     StyledTextInput,
     StyledButtonContainer,

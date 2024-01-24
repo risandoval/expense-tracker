@@ -40,6 +40,13 @@ const StyledSavingsView = styled.View`
   background-color: green;
 `
 
+const StyledRecentTransactionsView = styled.View`
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  background-color: cyan;
+`
+
 // const StyledBottomSheetModal = styled(BottomSheetModal)`
 //   shadow-color: #000;
 //   shadow-opacity: 0.3;
@@ -54,6 +61,7 @@ export {
   StyledAccountsView,
   StyledBudgetsView,
   StyledSavingsView,
+  StyledRecentTransactionsView,
   StyledButtonContainer,
   // StyledBottomSheetModal
 };
