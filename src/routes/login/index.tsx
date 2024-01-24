@@ -26,6 +26,10 @@ const Login = ({ navigation }: TLoginProps) => {
         navigation.navigate('HomeNavigator', { screen: "Home" });
     };
 
+    const openModal = () => {
+        navigation.navigate('BottomSheet');
+    };
+
     return (
         <StyledSafeAreaView>
             <StyledView>
@@ -63,7 +67,7 @@ const Login = ({ navigation }: TLoginProps) => {
 
                 <StyledSectionView>
                     <StyledAltButtonContainer>
-                        <StyledAltButtonLabel onPress={handleAsGuestPress}>Continue as Guest</StyledAltButtonLabel>
+                        <StyledAltButtonLabel onPress={openModal}>Continue as Guest</StyledAltButtonLabel>
                     </StyledAltButtonContainer>
                 </StyledSectionView>
             </StyledView>
