@@ -1,10 +1,20 @@
 import styled from "styled-components/native";
 
 export const appColors = {
+
+    darkMode: {
+        background: '#17181C',
+        text: '#FAFAFA'
+    },
+
+    lightMode: {
+        text: '#17181C',
+        background: '#FAFAFA'
+    },
+
     green: '#8AC186',
     yellow: '#FFD47F',
     violet: '#7768D6',
-    background: '#22232C',
     darkBlue: '#17181C',
     white: '#FAFAFA'
 } 

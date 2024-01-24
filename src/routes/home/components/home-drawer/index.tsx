@@ -1,13 +1,14 @@
 import React from 'react'
 import { SafeAreaView, Text } from 'react-native'
-import { 
+
+import {
     StyledColumnView,
     StyledRowView,
     StyledDrawerButton,
     StyledButtonText,
     StyledFormCont,
     StyledTextInput,
-} from '../styles'
+} from './styles'
 
 
 const HomeDrawer = () => {
@@ -31,7 +32,7 @@ const HomeDrawer = () => {
                         />
                     </StyledRowView>
                 </StyledFormCont>
-                
+
             </StyledColumnView>
         </SafeAreaView>
     )
