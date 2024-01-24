@@ -1,16 +1,6 @@
 import styled from "styled-components/native";
-import { Platform, StatusBar } from "react-native";
-
-const getStatusBarHeight = () => {
-    return Platform.OS === "android" ? StatusBar.currentHeight || 0 : 0;
-};
 
 // Containers
-const StyledSafeAreaView = styled.SafeAreaView`
-    flex: 1;
-    padding-top: ${getStatusBarHeight()}px;
-`;
-
 const StyledView = styled.View`
     display: flex;
     flex-direction: column;
@@ -80,18 +70,14 @@ const StyledAltButtonLabel = styled.Text`
 `;
 
 export {
-    StyledSafeAreaView,
     StyledView,
     StyledSectionView,
-
     StyledInputView,
     StyledTextInput,
     StyledButtonContainer,
     StyledButtonLabel,
-
     StyledSeparatorContainer,
     StyledSeparatorLine,
-
     StyledAltButtonContainer,
     StyledAltButtonLabel
 };

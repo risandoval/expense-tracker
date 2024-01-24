@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Text } from 'react-native'
 import {
-    StyledSafeAreaView,
     StyledView,
     StyledInputView,
     StyledTextInput,
@@ -15,6 +14,7 @@ import {
 } from './styles'
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ParamListBase } from '@react-navigation/native';
+import { StyledSafeAreaView } from '../../styles/global';
 
 type TLoginProps = NativeStackScreenProps<ParamListBase, 'Login'>
 
@@ -25,11 +25,7 @@ const Login = ({ navigation }: TLoginProps) => {
     const handleAsGuestPress = () => {
         navigation.navigate('HomeNavigator', { screen: "Home" });
     };
-
-    const openModal = () => {
-        navigation.navigate('BottomSheet');
-    };
-
+    
     return (
         <StyledSafeAreaView>
             <StyledView>
@@ -67,7 +63,7 @@ const Login = ({ navigation }: TLoginProps) => {
 
                 <StyledSectionView>
                     <StyledAltButtonContainer>
-                        <StyledAltButtonLabel onPress={openModal}>Continue as Guest</StyledAltButtonLabel>
+                        <StyledAltButtonLabel onPress={handleAsGuestPress}>Continue as Guest</StyledAltButtonLabel>
                     </StyledAltButtonContainer>
                 </StyledSectionView>
             </StyledView>

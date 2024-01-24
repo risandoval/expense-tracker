@@ -1,15 +1,5 @@
 import styled from "styled-components/native";
-import { Platform, StatusBar } from "react-native";
-import { appColors } from "../../styles/global";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
-const getStatusBarHeight = () => {
-  return Platform.OS === "android" ? StatusBar.currentHeight || 0 : 0;
-};
-
-const StyledSafeAreaView = styled.SafeAreaView`
-    flex: 1;
-    padding-top: ${getStatusBarHeight()}px;
-`;
 
 const StyledButtonContainer = styled.TouchableOpacity`
 	position: absolute;
@@ -18,29 +8,52 @@ const StyledButtonContainer = styled.TouchableOpacity`
 `;
 
 const StyledScrollView = styled.ScrollView`
-    height: 100%;
-    padding: 10px;
+  height: 100%;
+  /* padding: 10px; */
 `
 
 const StyledMainView = styled.View`
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 0px;
 `
 
-const StyledBottomSheetModal = styled(BottomSheetModal)`
-  shadow-color: #000;
-  shadow-opacity: 0.3;
-  shadow-radius: 4.65px;
-  elevation: 8;
-  z-index: 99;
+const StyledAccountsView = styled.View`
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  background-color: blue;
 `
+
+const StyledBudgetsView = styled.View`
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  background-color: red;
+`
+
+const StyledSavingsView = styled.View`
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  background-color: green;
+`
+
+// const StyledBottomSheetModal = styled(BottomSheetModal)`
+//   shadow-color: #000;
+//   shadow-opacity: 0.3;
+//   shadow-radius: 4.65px;
+//   elevation: 8;
+//   z-index: 99;
+// `
 
 export {
-  StyledSafeAreaView,
   StyledScrollView,
   StyledMainView,
+  StyledAccountsView,
+  StyledBudgetsView,
+  StyledSavingsView,
   StyledButtonContainer,
-  StyledBottomSheetModal
+  // StyledBottomSheetModal
 };

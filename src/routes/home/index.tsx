@@ -1,56 +1,54 @@
-import React, { useCallback, useContext, useMemo, useRef, useState } from 'react'
-import { StyleSheet, SafeAreaView, ScrollView, Text, View, Platform, Button } from 'react-native'
-import { recentTransactions } from '../../dummy_data/recentTransactions'
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-import { AntDesign } from '@expo/vector-icons';
+import React, { useContext } from 'react'
 import {
-    StyledSafeAreaView,
-    StyledButtonContainer,
-    StyledScrollView,
+    StyledAccountsView,
+    StyledBudgetsView,
     StyledMainView,
-    StyledBottomSheetModal,
+    StyledSavingsView,
+    StyledScrollView,
 } from './styles'
-import { HomeDrawer } from './components/home-drawer';
 import { ThemeContext } from '../../contexts/ThemeContext';
-import { useBottomSheetHook } from '../../contexts/BottomSheetContext';
+import { StyledBodyText1, StyledSafeAreaView } from '../../styles/global';
+import { HomeSection } from './components/home-section';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+
 
 
 const Home = () => {
-
     const { theme, toggleTheme } = useContext(ThemeContext);
-
-    const { handlePresentModalPress, bottomSheetModalRef, snapPoints,  handleSheetChanges} = useBottomSheetHook();
-
+    const tabBarHeight = useBottomTabBarHeight();
     return (
         <StyledSafeAreaView>
-            <GestureHandlerRootView>
-                <BottomSheetModalProvider>
-                    <StyledScrollView>
-                        <StyledMainView>
-                            <Button title='Change theme' onPress={() => toggleTheme()} />
-                            <Text>{theme}</Text>
-                            {/* add new screens here */}
+            <StyledScrollView >
+                {/* temporary change theme button  */}
 
-                        </StyledMainView>
-                    </StyledScrollView>
+                {/* <Button title='Change theme' onPress={() => toggleTheme()} />
+                <Text>{theme}</Text> */}
 
-                    <StyledBottomSheetModal
-                        ref={bottomSheetModalRef}
-                        index={0}
-                        snapPoints={snapPoints}
-                        onChange={handleSheetChanges}
-                    >
-                        <HomeDrawer />
-                    </StyledBottomSheetModal>
+                {/* add new screens below \/ */}
 
-                </BottomSheetModalProvider>
-            </GestureHandlerRootView>
+                <StyledMainView>
+                    <HomeSection label="Accounts">
+                        <StyledAccountsView>
+                            <StyledBodyText1>Test</StyledBodyText1>
+                        </StyledAccountsView>
+                    </HomeSection>
+
+                    <HomeSection label="Budget">
+                        <StyledBudgetsView>
+                            <StyledBodyText1>Test</StyledBodyText1>
+                        </StyledBudgetsView>
+                    </HomeSection>
+
+                    <HomeSection label="Savings">
+                        <StyledSavingsView>
+                            <StyledBodyText1>Test</StyledBodyText1>
+                        </StyledSavingsView>
+                    </HomeSection>
+                </StyledMainView>
+
+            </StyledScrollView>
         </StyledSafeAreaView>
     )
 }
-
-
-
 
 export { Home }

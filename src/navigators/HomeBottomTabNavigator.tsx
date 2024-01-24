@@ -1,35 +1,34 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React, { useContext } from 'react'
+import { BottomTabBarProps, BottomTabNavigationEventMap, createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Home } from '../routes/home'
 import { Login } from '../routes/login'
-import { ThemeContext } from '../contexts/ThemeContext'
-import { appColors } from '../styles/global'
-import { Button, Text, Touchable, TouchableOpacity, View } from 'react-native'
-import { StyledButtonContainer } from '../routes/home/styles'
-import { AntDesign } from '@expo/vector-icons';
-import styled from 'styled-components/native'
-import { useBottomSheetHook } from '../contexts/BottomSheetContext'
-
-
+import { appColors, lightTheme } from '../styles/global'
+import { Text, TouchableOpacity, View, useColorScheme } from 'react-native'
+import styled, { ThemeContext } from 'styled-components/native'
+import { NavigationHelpers, ParamListBase } from '@react-navigation/native'
 
 const BottomTab = createBottomTabNavigator()
 
+
 const HomeBottomTabNavigator = () => {
-    const { theme } = useContext(ThemeContext);
+    const theme = useContext(ThemeContext);
 
     return (
         <BottomTab.Navigator
             tabBar={props => <TabBar {...props} />}
-            initialRouteName='Home'
-            sceneContainerStyle={{
-                backgroundColor: appColors[theme].background
-            }}
-            screenOptions={{
 
+            initialRouteName='Home'
+            
+            sceneContainerStyle={{
+                backgroundColor: theme?.backgroundColor ?? lightTheme.backgroundColor,
+            }}
+
+            screenOptions={{
                 headerTitle: '',
                 headerShadowVisible: false,
                 headerStyle: {
-                    backgroundColor: appColors[theme].background
+                    // backgroundColor: theme?.backgroundColor ?? lightTheme.backgroundColor
+                    backgroundColor: '#1e1e1e'
                 }
             }}
         >
@@ -48,20 +47,21 @@ const HomeBottomTabNavigator = () => {
     )
 }
 
-
 const StyledView = styled.View`
     display: flex;
     flex-direction: row;
     padding: 30px 5px;
     justify-content: between;
+    background-color: #1e1e1e;
 `
 
-const TabBar = ({ state, descriptors, navigation }) => {
+const TabBar: React.FC<BottomTabBarProps> = ({ state, descriptors, navigation }) => {
     return (
         <StyledView>
             {
-                state.routes.map((route, index) => {
+                state.routes.map((route, index: number) => {
                     const { options } = descriptors[route.key];
+
                     const label =
                         options.tabBarLabel !== undefined
                             ? options.tabBarLabel
@@ -83,8 +83,8 @@ const TabBar = ({ state, descriptors, navigation }) => {
                         }
                     };
 
-                    if(index == 1) {
-                        return <CustomButton key={index} />
+                    if (index == 1) {
+                        return <BottomSheetButton key={index} navigation={navigation} />
                     }
 
                     return (
@@ -97,9 +97,11 @@ const TabBar = ({ state, descriptors, navigation }) => {
                             onPress={onPress}
                             style={{ flex: 1, display: 'flex', alignItems: 'center' }}
                         >
-                            <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-                                {label}
+
+                            <Text>
+                                {label.toString()}
                             </Text>
+
                         </TouchableOpacity>
                     )
                 })
@@ -108,12 +110,13 @@ const TabBar = ({ state, descriptors, navigation }) => {
     )
 }
 
-const CustomButton = () => {
-
-    const { handlePresentModalPress } = useBottomSheetHook();
+const BottomSheetButton = ({ navigation }: { navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap> }) => {
+    const handleButtonPress = () => {
+        navigation.navigate('HomeBottomSheet');
+    }
 
     return (
-        <TouchableOpacity onPress={handlePresentModalPress}> 
+        <TouchableOpacity onPress={handleButtonPress}>
             <Text>Testing Lang</Text>
         </TouchableOpacity>
     )
