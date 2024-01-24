@@ -15,11 +15,11 @@ const HomeDrawerNavigator = () => {
                 headerTitle: '',
                 overlayColor: '#00000098',
                 sceneContainerStyle: {
-                    backgroundColor: appColors.background
+                    backgroundColor: appColors.darkMode.background
                 },
                 headerShadowVisible: false,
                 headerStyle: {
-                    backgroundColor: appColors.background
+                    backgroundColor: appColors.darkMode.background
                 }
             }}>
             <Drawer.Screen name="Home" component={Home} />

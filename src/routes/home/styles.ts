@@ -1,8 +1,9 @@
 import styled from "styled-components/native";
 import { Platform, StatusBar } from "react-native";
-
+import { appColors } from "../../styles/global";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
 const getStatusBarHeight = () => {
-    return Platform.OS === "android" ? StatusBar.currentHeight || 0 : 0;
+  return Platform.OS === "android" ? StatusBar.currentHeight || 0 : 0;
 };
 
 const StyledSafeAreaView = styled.SafeAreaView`
@@ -10,95 +11,35 @@ const StyledSafeAreaView = styled.SafeAreaView`
     padding-top: ${getStatusBarHeight()}px;
 `;
 
-const StyledScrollView = styled.ScrollView`
-	height: 100%;
-	padding: 5px;
-`
-
-const StyledMainView = styled.View`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-`
-
-const StyledHomeText = styled.Text`
-	font-size: 16px;
-	text-align: center;
-`
-
 const StyledButtonContainer = styled.TouchableOpacity`
 	position: absolute;
 	bottom: 40px;
 	right: 20px;
 `;
 
-//bottom drawer styles below
-const StyledBottomSheetModal = styled.View`
-  background-color: white;
-  padding: 16px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  ${Platform.OS === "ios"
-        ? `
-    shadowColor: #000;
-    shadowOffset: { width: 0, height: -3 };
-    shadowOpacity: 0.1;
-    shadowRadius: 5;
-  `
-        : `
-    elevation: 5;
-  `}
+const StyledScrollView = styled.ScrollView`
+    height: 100%;
+    padding: 10px;
 `
 
-const StyledColumnView = styled.View`
-  display: flex;
-  flex-direction: column;
+const StyledMainView = styled.View`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
 `
 
-const StyledRowView = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-`
-
-const StyledDrawerButton = styled.TouchableOpacity`
-  background-color: trasnparent;
-  border: 1px solid;
-  border-radius: 10px;
-  padding: 5px;
-  width: 40%;
-`
-
-const StyledButtonText = styled.Text`
-  text-align: center;
-`
-
-const StyledFormCont = styled.View`
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  padding: 10px;
-`
-
-const StyledTextInput = styled.TextInput`
-  flex: 4;
-  border-bottom-width: 1px;
+const StyledBottomSheetModal = styled(BottomSheetModal)`
+  shadow-color: #000;
+  shadow-opacity: 0.3;
+  shadow-radius: 4.65px;
+  elevation: 8;
 `
 
 export {
-    StyledSafeAreaView,
-    StyledScrollView,
-    StyledMainView,
-    StyledHomeText,
-    StyledButtonContainer,
-    StyledBottomSheetModal,
-    StyledColumnView,
-    StyledRowView,
-    StyledDrawerButton,
-    StyledButtonText,
-    StyledFormCont,
-    StyledTextInput,
+  StyledSafeAreaView,
+  StyledScrollView,
+  StyledMainView,
+  StyledButtonContainer,
+  StyledBottomSheetModal
 };
