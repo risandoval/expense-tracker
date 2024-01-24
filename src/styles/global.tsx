@@ -37,31 +37,42 @@ const StyledSafeAreaView = styled.SafeAreaView`
 const StyledHeader1 = styled.Text`
     font-size: 28px;
     color: ${p => p.theme.fontColor};
+    font-family: 'Lexend_400Regular';
 `
 
 const StyledHeader2 = styled.Text`
     font-size: 22px;
     color: ${p => p.theme.fontColor};
+    font-family: 'Lexend_400Regular';
+
 `
 
 const StyledHeader3 = styled.Text`
     font-size: 20px;
     color: ${p => p.theme.fontColor};
+    font-family: 'Lexend_400Regular';
+
 `
 
 const StyledBodyText1 = styled.Text`
     font-size: 17px;
     color: ${p => p.theme.fontColor};
+    font-family: 'Lexend_400Regular';
+
 `
 
 const StyledBodyText2 = styled.Text`
     font-size: 15px;
     color: ${p => p.theme.fontColor};
+    font-family: 'Lexend_400Regular';
+
 `
 
 const StyledBodyText3 = styled.Text`
     font-size: 13px;
     color: ${p => p.theme.fontColor};
+    font-family: 'Lexend_400Regular';
+
 `
 
 export {

@@ -9,46 +9,74 @@ import {
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { StyledBodyText1, StyledSafeAreaView } from '../../styles/global';
 import { HomeSection } from './components/home-section';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-
+import { Text } from 'react-native';
+import {
+    useFonts,
+    Lexend_100Thin,
+    Lexend_200ExtraLight,
+    Lexend_300Light,
+    Lexend_400Regular,
+    Lexend_500Medium,
+    Lexend_600SemiBold,
+    Lexend_700Bold,
+    Lexend_800ExtraBold,
+    Lexend_900Black,
+} from '@expo-google-fonts/lexend';
 
 
 const Home = () => {
+    let [fontsLoaded] = useFonts({
+        Lexend_100Thin,
+        Lexend_200ExtraLight,
+        Lexend_300Light,
+        Lexend_400Regular,
+        Lexend_500Medium,
+        Lexend_600SemiBold,
+        Lexend_700Bold,
+        Lexend_800ExtraBold,
+        Lexend_900Black,
+    });
+
     const { theme, toggleTheme } = useContext(ThemeContext);
-    const tabBarHeight = useBottomTabBarHeight();
-    return (
-        <StyledSafeAreaView>
-            <StyledScrollView >
-                {/* temporary change theme button  */}
+    
+    if(!fontsLoaded) {
+        return <Text> Loading </Text>
+    } else {
+        return (
+            <StyledSafeAreaView>
+                <StyledScrollView >
+                    {/* temporary change theme button  */}
+    
+                    {/* <Button title='Change theme' onPress={() => toggleTheme()} />
+                    <Text>{theme}</Text> */}
+    
+                    {/* add new screens below \/ */}
+    
+                    <StyledMainView>
+                        <HomeSection label="Accounts">
+                            <StyledAccountsView>
+                                <StyledBodyText1>Test</StyledBodyText1>
+                            </StyledAccountsView>
+                        </HomeSection>
+    
+                        <HomeSection label="Budget">
+                            <StyledBudgetsView>
+                                <StyledBodyText1>Test</StyledBodyText1>
+                            </StyledBudgetsView>
+                        </HomeSection>
+    
+                        <HomeSection label="Savings">
+                            <StyledSavingsView>
+                                <StyledBodyText1>Test</StyledBodyText1>
+                            </StyledSavingsView>
+                        </HomeSection>
+                    </StyledMainView>
+    
+                </StyledScrollView>
+            </StyledSafeAreaView>
+        )
+    }
 
-                {/* <Button title='Change theme' onPress={() => toggleTheme()} />
-                <Text>{theme}</Text> */}
-
-                {/* add new screens below \/ */}
-
-                <StyledMainView>
-                    <HomeSection label="Accounts">
-                        <StyledAccountsView>
-                            <StyledBodyText1>Test</StyledBodyText1>
-                        </StyledAccountsView>
-                    </HomeSection>
-
-                    <HomeSection label="Budget">
-                        <StyledBudgetsView>
-                            <StyledBodyText1>Test</StyledBodyText1>
-                        </StyledBudgetsView>
-                    </HomeSection>
-
-                    <HomeSection label="Savings">
-                        <StyledSavingsView>
-                            <StyledBodyText1>Test</StyledBodyText1>
-                        </StyledSavingsView>
-                    </HomeSection>
-                </StyledMainView>
-
-            </StyledScrollView>
-        </StyledSafeAreaView>
-    )
 }
 
 export { Home }
