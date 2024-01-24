@@ -1,8 +1,15 @@
+import { BottomSheetContainer } from './src/contexts/BottomSheetContext';
+import { ThemeContextProvider } from './src/contexts/ThemeContext';
 import { MainNavigation } from './src/navigators';
+
 
 export default function App() {
     return (
-        <MainNavigation />
+        <ThemeContextProvider>
+            <BottomSheetContainer>
+                <MainNavigation />
+            </BottomSheetContainer>
+        </ThemeContextProvider>
     );
 }
 

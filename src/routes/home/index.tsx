@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useContext, useMemo, useRef, useState } from 'react'
 import { StyleSheet, SafeAreaView, ScrollView, Text, View, Platform, Button } from 'react-native'
 import { recentTransactions } from '../../dummy_data/recentTransactions'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -12,19 +12,15 @@ import {
     StyledBottomSheetModal,
 } from './styles'
 import { HomeDrawer } from './components/home-drawer';
+import { ThemeContext } from '../../contexts/ThemeContext';
+import { useBottomSheetHook } from '../../contexts/BottomSheetContext';
 
 
 const Home = () => {
-    const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-    const snapPoints = useMemo(() => ['60%', '90%'], []);
 
-    const handlePresentModalPress = useCallback(() => {
-        bottomSheetModalRef.current?.present();
-    }, []);
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
-    const handleSheetChanges = useCallback((index: number) => {
-        // sheet change logic
-    }, []);
+    const { handlePresentModalPress, bottomSheetModalRef, snapPoints,  handleSheetChanges} = useBottomSheetHook();
 
     return (
         <StyledSafeAreaView>
@@ -32,18 +28,16 @@ const Home = () => {
                 <BottomSheetModalProvider>
                     <StyledScrollView>
                         <StyledMainView>
+                            <Button title='Change theme' onPress={() => toggleTheme()} />
+                            <Text>{theme}</Text>
                             {/* add new screens here */}
 
                         </StyledMainView>
                     </StyledScrollView>
 
-                    <StyledButtonContainer onPress={handlePresentModalPress}>
-                        <AntDesign name="pluscircle" size={50} color="black" />
-                    </StyledButtonContainer>
-
                     <StyledBottomSheetModal
                         ref={bottomSheetModalRef}
-                        index={1}
+                        index={0}
                         snapPoints={snapPoints}
                         onChange={handleSheetChanges}
                     >

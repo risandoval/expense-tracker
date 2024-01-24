@@ -34,6 +34,7 @@ const StyledBottomSheetModal = styled(BottomSheetModal)`
   shadow-opacity: 0.3;
   shadow-radius: 4.65px;
   elevation: 8;
+  z-index: 99;
 `
 
 export {

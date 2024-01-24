@@ -2,12 +2,12 @@ import styled from "styled-components/native";
 
 export const appColors = {
 
-    darkMode: {
+    dark: {
         background: '#17181C',
         text: '#FAFAFA'
     },
 
-    lightMode: {
+    light: {
         text: '#17181C',
         background: '#FAFAFA'
     },
