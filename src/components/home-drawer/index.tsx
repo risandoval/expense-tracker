@@ -29,14 +29,14 @@ const HomeDrawer = () => {
                     <StyledFormField>
                         <StyledBodyText2>Date</StyledBodyText2>
                         <StyledTextInput
-                            placeholder="Date Picker and Tie"
+                            placeholder="Date Picker and Time"
                         />
                     </StyledFormField>
 
                     <StyledFormField>
                         <StyledBodyText2>Amount</StyledBodyText2>
                         <StyledTextInput
-                            placeholder="Enter Amount"
+                            placeholder="Should be numbers only"
                         />
                     </StyledFormField>
 
@@ -61,7 +61,6 @@ const HomeDrawer = () => {
                         />
                     </StyledFormField>
                 </StyledFormCont>
-
             </StyledColumnView>
         </SafeAreaView>
     )

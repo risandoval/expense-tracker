@@ -39,7 +39,7 @@ const StyledDrawerButton = styled.TouchableOpacity`
   background-color: transparent;
   border: 1px solid;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px 5px;
   width: 30%;
 `
 
