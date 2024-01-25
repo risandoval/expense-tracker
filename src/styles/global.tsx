@@ -75,6 +75,29 @@ const StyledBodyText3 = styled.Text`
 
 `
 
+// form input fields
+const StyledFormCont = styled.View`
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  margin-top: 10px;
+`
+
+const StyledFormField = styled.View`
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 5px;
+  margin-top: 20px;
+`
+
+const StyledTextInput = styled.TextInput`
+  background-color: #eaeaea;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 17px;
+`
+
 export {
     StyledSafeAreaView,
     StyledHeader1,
@@ -82,5 +105,9 @@ export {
     StyledHeader3,
     StyledBodyText1,
     StyledBodyText2,
-    StyledBodyText3
+    StyledBodyText3,
+    StyledFormCont,
+    StyledFormField,
+    StyledTextInput
+
 }

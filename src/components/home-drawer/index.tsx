@@ -1,13 +1,11 @@
 import React from 'react'
 import { SafeAreaView, Text } from 'react-native'
-
+import { StyledBodyText2, StyledFormCont, StyledFormField, StyledTextInput } from '../../styles/global'
 import {
     StyledColumnView,
     StyledRowView,
     StyledDrawerButton,
-    StyledButtonText,
-    StyledFormCont,
-    StyledTextInput,
+    StyledButtonText
 } from './styles'
 
 
@@ -22,15 +20,46 @@ const HomeDrawer = () => {
                     <StyledDrawerButton>
                         <StyledButtonText>Expense</StyledButtonText>
                     </StyledDrawerButton>
+                    <StyledDrawerButton>
+                        <StyledButtonText>Transfer</StyledButtonText>
+                    </StyledDrawerButton>
                 </StyledRowView>
 
                 <StyledFormCont>
-                    <StyledRowView style={{ justifyContent: 'flex-start' }}>
-                        <Text style={{ flex: 1 }}>Amount</Text>
+                    <StyledFormField>
+                        <StyledBodyText2>Date</StyledBodyText2>
                         <StyledTextInput
-                            placeholder="Enter Expense"
+                            placeholder="Date Picker and Tie"
                         />
-                    </StyledRowView>
+                    </StyledFormField>
+
+                    <StyledFormField>
+                        <StyledBodyText2>Amount</StyledBodyText2>
+                        <StyledTextInput
+                            placeholder="Enter Amount"
+                        />
+                    </StyledFormField>
+
+                    <StyledFormField>
+                        <StyledBodyText2>Category</StyledBodyText2>
+                        <StyledTextInput
+                            placeholder="Category Dropdown"
+                        />
+                    </StyledFormField>
+
+                    <StyledFormField>
+                        <StyledBodyText2>Account</StyledBodyText2>
+                        <StyledTextInput
+                            placeholder="Account Dropdown"
+                        />
+                    </StyledFormField>
+
+                    <StyledFormField>
+                        <StyledBodyText2>Note</StyledBodyText2>
+                        <StyledTextInput
+                            placeholder="Optional Note"
+                        />
+                    </StyledFormField>
                 </StyledFormCont>
 
             </StyledColumnView>
