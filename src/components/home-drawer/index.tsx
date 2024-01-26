@@ -9,21 +9,46 @@ import {
     StyledConfirmBtn
 } from './styles'
 
+type ButtonName = 'Income' | 'Expense' | 'Transfer' | 'Default';
 
 const HomeDrawer = () => {
+    const [activeButton, setActiveButton] = useState<ButtonName | null>(null);
+
+    const handleButtonClick = (buttonName: ButtonName) => {
+        setActiveButton(buttonName);
+      };
+
     return (
         <SafeAreaView>
             <ScrollView>
                 <StyledColumnView>
                     <StyledRowView>
-                        <StyledDrawerButton>
-                            <StyledButtonText>Income</StyledButtonText>
+                        <StyledDrawerButton
+                            active={activeButton === 'Income'}
+                            onPress={() => handleButtonClick('Income')}
+                            buttonName="Income"
+                        >
+                            <StyledButtonText active={activeButton === 'Income'} buttonName="Income">
+                                Income
+                            </StyledButtonText>
                         </StyledDrawerButton>
-                        <StyledDrawerButton>
-                            <StyledButtonText>Expense</StyledButtonText>
+                        <StyledDrawerButton
+                            active={activeButton === 'Expense'}
+                            onPress={() => handleButtonClick('Expense')}
+                            buttonName="Expense"
+                        >
+                            <StyledButtonText active={activeButton === 'Expense'} buttonName="Expense">
+                                Expense
+                            </StyledButtonText>
                         </StyledDrawerButton>
-                        <StyledDrawerButton>
-                            <StyledButtonText>Transfer</StyledButtonText>
+                        <StyledDrawerButton
+                            active={activeButton === 'Transfer'}
+                            onPress={() => handleButtonClick('Transfer')}
+                            buttonName="Transfer"
+                        >
+                            <StyledButtonText active={activeButton === 'Transfer'} buttonName="Transfer">
+                                Transfer
+                            </StyledButtonText>
                         </StyledDrawerButton>
                     </StyledRowView>
 
@@ -66,7 +91,9 @@ const HomeDrawer = () => {
 
                     <StyledRowView>
                         <StyledConfirmBtn>
-                            <StyledButtonText>Confirm</StyledButtonText>
+                            <StyledButtonText active={false} buttonName="Default">
+                                Confirm
+                            </StyledButtonText>
                         </StyledConfirmBtn>
                     </StyledRowView>
 

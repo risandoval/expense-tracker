@@ -1,7 +1,15 @@
 //home-drawer styles
-import styled from "styled-components/native";
-import { StyledBodyText2 } from "../../styles/global";
+import styled, { css } from "styled-components/native";
+import { StyledBodyText2, appColors } from "../../styles/global";
 import { Platform } from "react-native";
+import { TouchableOpacityProps } from 'react-native';
+
+type ButtonName = 'Income' | 'Expense' | 'Transfer' | 'Default';
+
+interface StyledDrawerButtonProps extends TouchableOpacityProps {
+  active?: boolean;
+  buttonName: ButtonName;
+}
 
 const StyledBottomSheetModal = styled.View`
   background-color: white;
@@ -20,6 +28,39 @@ const StyledBottomSheetModal = styled.View`
   `}
 `
 
+const activeButtonStyles = css<StyledDrawerButtonProps>`
+  ${(props) => props.active && css`
+    background-color: ${getColorForButton(props.buttonName)};
+    color: ${getTextColorForButton(props.buttonName)};
+  `}
+`;
+
+const getColorForButton = (buttonName: ButtonName): string => {
+  switch (buttonName) {
+    case 'Income':
+      return '#b0eed0';
+    case 'Expense':
+      return '#fcdada';
+    case 'Transfer':
+      return '#cde2f5';
+    default:
+      return '';
+  }
+};
+
+const getTextColorForButton = (buttonName: ButtonName): string => {
+  switch (buttonName) {
+    case 'Income':
+      return '#25B570';
+    case 'Expense':
+      return '#F06666';
+    case 'Transfer':
+      return '#2570B5';
+    default:
+      return '#000000'; // Default color
+  }
+};
+
 const StyledColumnView = styled.View`
   display: flex;
   flex-direction: column;
@@ -34,26 +75,36 @@ const StyledRowView = styled.View`
   justify-content: center;
   gap: 10px;
 `
-
-const StyledDrawerButton = styled.TouchableOpacity`
-  background-color: transparent;
-  border: 1px solid;
+//default - background-color: #dfe0e6; color: black;
+//income - bg color:#b0eed0 ; color:#25B570;
+//expense - bg color:#fcdada ; color:#F06666;
+//trasfer - bg color:#cde2f5 ; color:#2570B5;
+const StyledDrawerButton = styled.TouchableOpacity<StyledDrawerButtonProps>`
+  background-color: #dfe0e6;
   border-radius: 10px;
   padding: 10px 5px;
   width: 30%;
-`
 
-const StyledButtonText = styled(StyledBodyText2)`
+  ${activeButtonStyles}
+`;
+
+const StyledButtonText = styled(StyledBodyText2)<StyledDrawerButtonProps>`
   text-align: center;
+  ${(props) => props.active && css`
+    color: ${getTextColorForButton(props.buttonName)};
+  `}
+
 `
 
-const StyledConfirmBtn = styled(StyledDrawerButton)`
+const StyledConfirmBtn = styled.TouchableOpacity`
+  background-color: #dfe0e6;
+  border-radius: 10px;
+  padding: 10px 5px;
+  width: 30%;
   display: flex;
   flex-direction: column;
   width: 95%;
 `
-
-
 
 export {
     StyledColumnView,
