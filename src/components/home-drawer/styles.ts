@@ -57,7 +57,7 @@ const getTextColorForButton = (buttonName: ButtonName): string => {
     case 'Transfer':
       return '#2570B5';
     default:
-      return '#000000'; // Default color
+      return '#000000';
   }
 };
 
@@ -75,10 +75,7 @@ const StyledRowView = styled.View`
   justify-content: center;
   gap: 10px;
 `
-//default - background-color: #dfe0e6; color: black;
-//income - bg color:#b0eed0 ; color:#25B570;
-//expense - bg color:#fcdada ; color:#F06666;
-//trasfer - bg color:#cde2f5 ; color:#2570B5;
+
 const StyledDrawerButton = styled.TouchableOpacity<StyledDrawerButtonProps>`
   background-color: #dfe0e6;
   border-radius: 10px;
@@ -90,10 +87,8 @@ const StyledDrawerButton = styled.TouchableOpacity<StyledDrawerButtonProps>`
 
 const StyledButtonText = styled(StyledBodyText2)<StyledDrawerButtonProps>`
   text-align: center;
-  ${(props) => props.active && css`
-    color: ${getTextColorForButton(props.buttonName)};
-  `}
-
+  
+  ${activeButtonStyles}
 `
 
 const StyledConfirmBtn = styled.TouchableOpacity`

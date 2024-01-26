@@ -16,7 +16,7 @@ const HomeDrawer = () => {
 
     const handleButtonClick = (buttonName: ButtonName) => {
         setActiveButton(buttonName);
-      };
+    };
 
     return (
         <SafeAreaView>
