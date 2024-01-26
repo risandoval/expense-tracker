@@ -79,8 +79,7 @@ const StyledBodyText3 = styled.Text`
 const StyledFormCont = styled.View`
   display: flex;
   flex-direction: column;
-  margin: 10px;
-  margin-top: 10px;
+  margin: 0 10px 10px;
 `
 
 const StyledFormField = styled.View`
@@ -109,5 +108,4 @@ export {
     StyledFormCont,
     StyledFormField,
     StyledTextInput
-
 }

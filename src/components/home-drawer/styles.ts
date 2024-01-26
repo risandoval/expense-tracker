@@ -23,8 +23,8 @@ const StyledBottomSheetModal = styled.View`
 const StyledColumnView = styled.View`
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
-  padding: 0 15px;
+  padding: 0 15px 15px 15px;
+  gap: 10px;
 `
 
 const StyledRowView = styled.View`
@@ -47,6 +47,12 @@ const StyledButtonText = styled(StyledBodyText2)`
   text-align: center;
 `
 
+const StyledConfirmBtn = styled(StyledDrawerButton)`
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+`
+
 
 
 export {
@@ -54,4 +60,5 @@ export {
     StyledRowView,
     StyledDrawerButton,
     StyledButtonText,
+    StyledConfirmBtn
 };
