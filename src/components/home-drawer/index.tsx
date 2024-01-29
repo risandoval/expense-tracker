@@ -6,10 +6,11 @@ import {
     StyledRowView,
     StyledDrawerButton,
     StyledButtonText,
-    StyledConfirmBtn
+    StyledConfirmBtn,
+    StyledConfirmTxt
 } from './styles'
 
-type ButtonName = 'Income' | 'Expense' | 'Transfer' | 'Default';
+type ButtonName = 'Income' | 'Expense' | 'Transfer';
 
 const HomeDrawer = () => {
     const [activeButton, setActiveButton] = useState<ButtonName | null>(null);
@@ -91,9 +92,9 @@ const HomeDrawer = () => {
 
                     <StyledRowView>
                         <StyledConfirmBtn>
-                            <StyledButtonText active={false} buttonName="Default">
+                            <StyledConfirmTxt> 
                                 Confirm
-                            </StyledButtonText>
+                            </StyledConfirmTxt>
                         </StyledConfirmBtn>
                     </StyledRowView>
 

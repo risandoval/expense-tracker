@@ -92,7 +92,7 @@ const StyledButtonText = styled(StyledBodyText2)<StyledDrawerButtonProps>`
 `
 
 const StyledConfirmBtn = styled.TouchableOpacity`
-  background-color: #dfe0e6;
+  background-color: ${appColors.green};
   border-radius: 10px;
   padding: 10px 5px;
   width: 30%;
@@ -101,10 +101,16 @@ const StyledConfirmBtn = styled.TouchableOpacity`
   width: 95%;
 `
 
+const StyledConfirmTxt = styled(StyledBodyText2)`
+  text-align: center;
+  color: ${appColors.white};
+`
+
 export {
     StyledColumnView,
     StyledRowView,
     StyledDrawerButton,
     StyledButtonText,
-    StyledConfirmBtn
+    StyledConfirmBtn,
+    StyledConfirmTxt
 };
