@@ -1,6 +1,6 @@
 //home-drawer styles
 import styled, { css } from "styled-components/native";
-import { StyledBodyText2, appColors } from "../../styles/global";
+import { StyledBodyText1, StyledBodyText2, appColors } from "../../styles/global";
 import { Platform } from "react-native";
 import { TouchableOpacityProps } from 'react-native';
 
@@ -38,7 +38,7 @@ const activeButtonStyles = css<StyledDrawerButtonProps>`
 const getColorForButton = (buttonName: ButtonName): string => {
   switch (buttonName) {
     case 'Income':
-      return '#b0eed0';
+      return '#d2e8d0';
     case 'Expense':
       return '#fcdada';
     case 'Transfer':
@@ -64,7 +64,7 @@ const getTextColorForButton = (buttonName: ButtonName): string => {
 const StyledColumnView = styled.View`
   display: flex;
   flex-direction: column;
-  padding: 0 15px 15px 15px;
+  padding: 10px 15px 15px 15px;
   gap: 10px;
 `
 
@@ -77,7 +77,7 @@ const StyledRowView = styled.View`
 `
 
 const StyledDrawerButton = styled.TouchableOpacity<StyledDrawerButtonProps>`
-  background-color: #dfe0e6;
+  background-color: ${p => p.theme.btnFieldBgColor};
   border-radius: 10px;
   padding: 10px 5px;
   width: 30%;
@@ -101,7 +101,7 @@ const StyledConfirmBtn = styled.TouchableOpacity`
   width: 95%;
 `
 
-const StyledConfirmTxt = styled(StyledBodyText2)`
+const StyledConfirmTxt = styled(StyledBodyText1)`
   text-align: center;
   color: ${appColors.white};
 `

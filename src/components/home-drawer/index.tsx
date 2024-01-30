@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { SafeAreaView, ScrollView } from 'react-native'
 import { StyledBodyText2, StyledFormCont, StyledFormField, StyledTextInput } from '../../styles/global'
 import {
