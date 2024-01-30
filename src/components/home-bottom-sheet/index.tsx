@@ -11,6 +11,7 @@ const HomeBottomSheetContainer = ({ children }: {children: ReactNode}) => {
     return (
         <View style={{ flex: 1 }}>
                 {children}
+
             <BottomSheet
                 ref={bottomSheetRef}
                 index={-1}

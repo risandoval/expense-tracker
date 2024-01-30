@@ -1,6 +1,5 @@
 import BottomSheet from '@gorhom/bottom-sheet';
-import React, { useCallback, useContext, useMemo, useRef } from 'react'
-import { BottomSheetContext } from '../contexts/BottomSheetContext';
+import { useCallback, useMemo, useRef } from 'react'
 
 const useBottomSheetHookProvider = () => {
     const bottomSheetRef = useRef<BottomSheet>(null);
@@ -9,7 +8,7 @@ const useBottomSheetHookProvider = () => {
 
     // callbacks
     const handleSheetChange = useCallback((index: number) => {
-        console.log('handleSheetChange', index);
+        // console.log('handleSheetChange', index);
     }, []);
 
     const handleSnapPress = useCallback((index: number) => {
@@ -19,9 +18,11 @@ const useBottomSheetHookProvider = () => {
     const handleExpandPress = useCallback(() => {
         bottomSheetRef.current?.expand();
     }, []);
+
     const handleCollapsePress = useCallback(() => {
         bottomSheetRef.current?.collapse();
     }, []);
+
     const handleClosePress = useCallback(() => {
         bottomSheetRef.current?.close();
     }, []);

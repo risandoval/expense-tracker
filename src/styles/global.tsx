@@ -51,7 +51,6 @@ const StyledHeader3 = styled.Text`
     font-size: 20px;
     color: ${p => p.theme.fontColor};
     font-family: 'Lexend_400Regular';
-
 `
 
 const StyledBodyText1 = styled.Text`
