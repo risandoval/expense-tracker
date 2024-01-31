@@ -25,6 +25,7 @@ import {
 } from '@expo-google-fonts/lexend';
 import AccountCard from './components/account-card';
 import { BudgetCard } from './components/budget-card';
+import { RecentTransactionCard } from './components/recent-transaction-card';
 
 
 const Home = () => {
@@ -55,6 +56,12 @@ const Home = () => {
             amount: 'P 1,500.00',
             type: 'E-Wallet'
         },
+        {
+            id: '3',
+            name: 'GCash',
+            amount: 'P 1,500.00',
+            type: 'E-Wallet'
+        }
     ]
 
     if (!fontsLoaded) {
@@ -106,7 +113,7 @@ const Home = () => {
                             </StyledBudgetsView>
                         </HomeSection>
 
-                        <HomeSection label="Savings">
+                        <HomeSection label="Goals">
                             <StyledSavingsView>
                                 <StyledBodyText1>Test</StyledBodyText1>
                             </StyledSavingsView>
@@ -114,7 +121,9 @@ const Home = () => {
 
                         <HomeSection label="Recent Transactions">
                             <StyledRecentTransactionsView>
-                                <StyledBodyText1>Test</StyledBodyText1>
+                                {
+                                    _accounts.map((recentTransaction, index) => <RecentTransactionCard key={index} />)
+                                }
                             </StyledRecentTransactionsView>
                         </HomeSection>
 

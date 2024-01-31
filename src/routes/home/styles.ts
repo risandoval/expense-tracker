@@ -39,8 +39,7 @@ const StyledSavingsView = styled.View`
 const StyledRecentTransactionsView = styled.View`
   display: flex;
   flex-direction: column;
-  height: 300px;
-  background-color: cyan;
+  padding: 0px 10px;
 `
 
 // const StyledBottomSheetModal = styled(BottomSheetModal)`

@@ -4,7 +4,7 @@ import { appColors } from "../../../../styles/global"
 
 
 const StyledBudgetCardView = styled.View`
-    width: 150px;
+    width: auto;
     aspect-ratio: 1/1;
     padding: 10px;
     display: flex;
@@ -24,7 +24,6 @@ const StyledBudgetAmount = styled.View`
 
 
 export {
-    StyledBudgetCardView
-    ,
+    StyledBudgetCardView,
     StyledBudgetAmount
 }

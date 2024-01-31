@@ -1,51 +1,41 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { StyledBodyText3, StyledHeader3 } from '../../../../styles/global'
-import { Text } from 'react-native'
+import { StyledBodyText2, StyledHeader3 } from '../../../../styles/global'
+import { StyledAccountTypeText, StyledLabelView, StyledLeftSideView, StyledRecentTransactionCardView } from './styles'
 
 const RecentTransactionCard = () => {
   return (
     <StyledRecentTransactionCardView>
       <StyledLeftSideView>
 
-        <Text>O</Text>
+        <Icon></Icon>
 
         <StyledLabelView>
           <StyledHeader3>
             Allowance
           </StyledHeader3>
-          <StyledBodyText3>
+          <StyledAccountTypeText>
             Cash
-          </StyledBodyText3>
+          </StyledAccountTypeText>
         </StyledLabelView>
       </StyledLeftSideView>
 
-      <StyledHeader3>
+      <StyledBodyText2>
         P 15,000.00
-      </StyledHeader3>
+      </StyledBodyText2>
 
     </StyledRecentTransactionCardView>
   )
 }
 
-const StyledRecentTransactionCardView = styled.View`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+const Icon = styled.View`
+  height: 35px;
+  aspect-ratio: 1/1;
+  background-color: #d1d1d1;
+  border-radius: 99999px;
 `
 
-const StyledLeftSideView = styled.View`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-`
 
-const StyledLabelView = styled.View`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-`
 
 
 export { RecentTransactionCard }
