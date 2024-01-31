@@ -10,7 +10,7 @@ import {
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { StyledBodyText1, StyledSafeAreaView } from '../../styles/global';
 import { HomeSection } from './components/home-section';
-import { Button, Text } from 'react-native';
+import { Button, FlatList, Text, View } from 'react-native';
 import {
     useFonts,
     Lexend_100Thin,
@@ -24,6 +24,8 @@ import {
     Lexend_900Black,
 } from '@expo-google-fonts/lexend';
 import AccountCard from './components/account-card';
+import { BudgetCard } from './components/budget-card';
+import { RecentTransactionCard } from './components/recent-transaction-card';
 
 
 const Home = () => {
@@ -41,12 +43,35 @@ const Home = () => {
 
     const { theme, toggleTheme } = useContext(ThemeContext);
 
+    const _accounts = [
+        {
+            id: '1',
+            name: 'Cash on Hand',
+            amount: 'P 500.00',
+            type: 'Cash'
+        },
+        {
+            id: '2',
+            name: 'GCash',
+            amount: 'P 1,500.00',
+            type: 'E-Wallet'
+        },
+        {
+            id: '3',
+            name: 'GCash',
+            amount: 'P 1,500.00',
+            type: 'E-Wallet'
+        }
+    ]
+
     if (!fontsLoaded) {
         return <Text> Loading </Text>
     } else {
         return (
             <StyledSafeAreaView>
-                <StyledScrollView >
+                <StyledScrollView
+                    showsVerticalScrollIndicator={false}
+                >
                     {/* temporary change theme button  */}
 
                     <Button title='Change theme' onPress={() => toggleTheme()} />
@@ -56,18 +81,39 @@ const Home = () => {
                     <StyledMainView>
                         <HomeSection label="Accounts">
                             <StyledAccountsView>
-                                <StyledBodyText1>Test</StyledBodyText1>
-                                <AccountCard/>
+                                <FlatList
+                                    style={{
+                                        overflow: "visible",
+                                        paddingVertical: 10,
+                                    }}
+                                    data={_accounts}
+                                    renderItem={AccountCard}
+                                    keyExtractor={item => item.id}
+                                    horizontal
+                                    showsHorizontalScrollIndicator={false}
+                                />
+
+                                {/* <AccountCard/> */}
                             </StyledAccountsView>
                         </HomeSection>
 
                         <HomeSection label="Budget">
                             <StyledBudgetsView>
-                                <StyledBodyText1>Test</StyledBodyText1>
+                                <FlatList
+                                    style={{
+                                        overflow: "visible",
+                                        paddingVertical: 10,
+                                    }}
+                                    data={_accounts}
+                                    renderItem={BudgetCard}
+                                    keyExtractor={item => item.id}
+                                    horizontal
+                                    showsHorizontalScrollIndicator={false}
+                                />
                             </StyledBudgetsView>
                         </HomeSection>
 
-                        <HomeSection label="Savings">
+                        <HomeSection label="Goals">
                             <StyledSavingsView>
                                 <StyledBodyText1>Test</StyledBodyText1>
                             </StyledSavingsView>
@@ -75,7 +121,9 @@ const Home = () => {
 
                         <HomeSection label="Recent Transactions">
                             <StyledRecentTransactionsView>
-                                <StyledBodyText1>Test</StyledBodyText1>
+                                {
+                                    _accounts.map((recentTransaction, index) => <RecentTransactionCard key={index} />)
+                                }
                             </StyledRecentTransactionsView>
                         </HomeSection>
 
@@ -85,7 +133,7 @@ const Home = () => {
             </StyledSafeAreaView>
         )
     }
-
 }
+
 
 export { Home }
