@@ -25,7 +25,7 @@ const HomeDrawer = () => {
                 return (
                     <StyledFormCont>
                         <StyledFormField>
-                            <StyledBodyText2>Date</StyledBodyText2>
+                            <StyledBodyText2>Income - Date</StyledBodyText2>
                             <StyledTextInput
                                 placeholder="Date Picker and Time"
                             />
@@ -64,7 +64,7 @@ const HomeDrawer = () => {
                 return (
                     <StyledFormCont>
                         <StyledFormField>
-                            <StyledBodyText2>Date</StyledBodyText2>
+                            <StyledBodyText2>Expense - Date</StyledBodyText2>
                             <StyledTextInput
                                 placeholder="Date Picker and Time"
                             />
