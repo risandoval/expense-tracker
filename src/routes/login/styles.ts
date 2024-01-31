@@ -4,8 +4,14 @@ import styled from "styled-components/native";
 const StyledView = styled.View`
     display: flex;
     flex-direction: column;
+    align-items: end;
     gap: 20px;
     padding: 10px;
+`;
+
+const StyledHeaderView = styled.View`
+    display: flex;
+    flex-direction: column;
 `;
 
 const StyledSectionView = styled.View`
@@ -13,6 +19,16 @@ const StyledSectionView = styled.View`
     flex-direction: column;
     gap: 10px;
 `;
+
+const StyledSectionViewMd = styled.View`
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+`;
+
+const StyledCenterText = styled.Text`
+    text-align: center;
+`
 
 const StyledSectionHeaderView = styled.View`
     padding: 0px 10px;
@@ -59,6 +75,7 @@ const StyledSeparatorLine = styled.View`
     flex: 1;
     height: 1px;
     background-color: #000;
+    opacity: 0.2;
 `;
 
 // Alternative login buttons
@@ -70,14 +87,19 @@ const StyledAltButtonContainer = styled.TouchableOpacity`
 const StyledAltButtonLabel = styled.Text`
     color: #000000;
     padding: 16px;
+    font-size: 15px;
+    color: ${p => p.theme.fontColor};
+    font-family: 'Lexend_400Regular';
     text-align: center;
-    font-weight: bold;
 `;
 
 export {
     StyledView,
+    StyledHeaderView,
     StyledSectionView,
+    StyledSectionViewMd,
     StyledSectionHeaderView,
+    StyledCenterText,
     StyledInputView,
     StyledTextInput,
     StyledButtonContainer,

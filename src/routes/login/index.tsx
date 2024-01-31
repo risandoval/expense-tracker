@@ -2,19 +2,21 @@ import React, { useState } from 'react'
 import { Text } from 'react-native'
 import {
     StyledView,
-    StyledInputView,
-    StyledTextInput,
     StyledButtonContainer,
     StyledButtonLabel,
     StyledSectionView,
     StyledSeparatorContainer,
     StyledSeparatorLine,
     StyledAltButtonContainer,
-    StyledAltButtonLabel
+    StyledAltButtonLabel,
+    StyledSectionViewMd,
+    StyledInputView,
+    StyledCenterText,
+    StyledHeaderView,
 } from './styles'
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ParamListBase } from '@react-navigation/native';
-import { StyledSafeAreaView } from '../../styles/global';
+import { StyledBodyText1, StyledBodyText2, StyledHeader1, StyledSafeAreaView, StyledTextInput } from '../../styles/global';
 
 type TLoginProps = NativeStackScreenProps<ParamListBase, 'Login'>
 
@@ -25,34 +27,25 @@ const Login = ({ navigation }: TLoginProps) => {
     const handleAsGuestPress = () => {
         navigation.navigate('HomeNavigator', { screen: "Home" });
     };
-    
+
     return (
         <StyledSafeAreaView>
             <StyledView>
-                <StyledSectionView>
-                    <StyledInputView>
-                        <Text>Email</Text>
-                        <StyledTextInput id='email' onChangeText={setEmail} />
-                    </StyledInputView>
-                    <StyledInputView>
-                        <Text>Password</Text>
-                        <StyledTextInput id='password' onChangeText={setPassword} />
-                    </StyledInputView>
-                    <StyledButtonContainer>
-                        <StyledButtonLabel>Continue</StyledButtonLabel>
-                    </StyledButtonContainer>
-                </StyledSectionView>
-
-                <StyledSeparatorContainer>
-                    <StyledSeparatorLine />
-                    <Text>or</Text>
-                    <StyledSeparatorLine />
-                </StyledSeparatorContainer>
+                <StyledHeaderView>
+                    <StyledHeader1 style={{ fontWeight: '700' }}>Log In</StyledHeader1>
+                    <StyledBodyText1 style={{ opacity: 0.3 }}>Enter your credentials or continue as guest.</StyledBodyText1>
+                </StyledHeaderView>
 
                 <StyledSectionView>
                     <StyledAltButtonContainer>
                         <StyledAltButtonLabel>Continue with Google</StyledAltButtonLabel>
                     </StyledAltButtonContainer>
+                    <StyledAltButtonContainer>
+                        <StyledAltButtonLabel>Continue with Facebook</StyledAltButtonLabel>
+                    </StyledAltButtonContainer>
+                    <StyledAltButtonContainer>
+                        <StyledAltButtonLabel onPress={handleAsGuestPress}>Continue as Guest</StyledAltButtonLabel>
+                    </StyledAltButtonContainer>
                 </StyledSectionView>
 
                 <StyledSeparatorContainer>
@@ -61,11 +54,24 @@ const Login = ({ navigation }: TLoginProps) => {
                     <StyledSeparatorLine />
                 </StyledSeparatorContainer>
 
-                <StyledSectionView>
-                    <StyledAltButtonContainer>
-                        <StyledAltButtonLabel onPress={handleAsGuestPress}>Continue as Guest</StyledAltButtonLabel>
-                    </StyledAltButtonContainer>
-                </StyledSectionView>
+                <StyledSectionViewMd>
+                    <StyledSectionView>
+                        <StyledInputView>
+                            <StyledBodyText2>Email</StyledBodyText2>
+                            <StyledTextInput id='email' onChangeText={setEmail} />
+                        </StyledInputView>
+                        <StyledInputView>
+                            <StyledBodyText2>Password</StyledBodyText2>
+                            <StyledTextInput id='password' onChangeText={setPassword} />
+                        </StyledInputView>
+                    </StyledSectionView>
+
+                    <StyledButtonContainer>
+                        <StyledButtonLabel>Login</StyledButtonLabel>
+                    </StyledButtonContainer>
+
+                    <StyledCenterText>Don't have an account? <Text style={{ fontWeight: '700' }}>Register</Text></StyledCenterText>
+                </StyledSectionViewMd>
             </StyledView>
         </StyledSafeAreaView>
     )
