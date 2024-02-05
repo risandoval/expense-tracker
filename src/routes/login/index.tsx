@@ -34,7 +34,7 @@ const Login = ({ navigation }: TLoginProps) => {
 
     return (
         <StyledSafeAreaView>
-            <StyledView>
+            <StyledView style={{ marginTop: 'auto' }}>
                 <StyledHeaderView>
                     <StyledHeader1 style={{ fontWeight: '700' }}>Log In</StyledHeader1>
                     <StyledBodyText1 style={{ opacity: 0.3 }}>Enter your credentials or continue as guest.</StyledBodyText1>

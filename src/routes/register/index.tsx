@@ -23,14 +23,15 @@ type TLoginProps = NativeStackScreenProps<ParamListBase, 'Login'>
 const Register = ({ navigation }: TLoginProps) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleRegisterPress = () => {
-        navigation.navigate('Register');
+        navigation.navigate('Login');
     }
 
     return (
         <StyledSafeAreaView>
-            <StyledView>
+            <StyledView style={{ marginTop: 'auto' }}>
                 <StyledHeaderView>
                     <StyledHeader1 style={{ fontWeight: '700' }}>Register</StyledHeader1>
                     <StyledBodyText1 style={{ opacity: 0.3 }}>Create an account so you can access your information on other platforms!</StyledBodyText1>
@@ -54,14 +55,6 @@ const Register = ({ navigation }: TLoginProps) => {
                 <StyledSectionViewMd>
                     <StyledSectionView>
                         <StyledInputView>
-                            <StyledBodyText2>First Name</StyledBodyText2>
-                            <StyledTextInput id='first_name' placeholder="Enter your first name" onChangeText={setEmail} />
-                        </StyledInputView>
-                        <StyledInputView>
-                            <StyledBodyText2>Last Name</StyledBodyText2>
-                            <StyledTextInput id='last_name' placeholder="Enter your last name" onChangeText={setEmail} />
-                        </StyledInputView>
-                        <StyledInputView>
                             <StyledBodyText2>Email</StyledBodyText2>
                             <StyledTextInput id='email' placeholder="Enter your email" onChangeText={setEmail} />
                         </StyledInputView>
@@ -71,7 +64,7 @@ const Register = ({ navigation }: TLoginProps) => {
                         </StyledInputView>
                         <StyledInputView>
                             <StyledBodyText2>Confirm Password</StyledBodyText2>
-                            <StyledTextInput id='confirm_password' placeholder="Re-enter your password" onChangeText={setPassword} />
+                            <StyledTextInput id='confirm_password' placeholder="Re-enter your password" onChangeText={setConfirmPassword} />
                         </StyledInputView>
                     </StyledSectionView>
 
