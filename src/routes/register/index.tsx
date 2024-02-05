@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Text } from 'react-native'
+import React, { useState } from "react"
+import { Text } from "react-native"
 import {
     StyledView,
     StyledButtonContainer,
@@ -13,27 +13,27 @@ import {
     StyledInputView,
     StyledCenterText,
     StyledHeaderView,
-} from './styles';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { ParamListBase } from '@react-navigation/native';
-import { StyledBodyText1, StyledBodyText2, StyledHeader1, StyledSafeAreaView, StyledTextInput } from '../../styles/global';
+} from "./styles";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ParamListBase } from "@react-navigation/native";
+import { StyledBodyText1, StyledBodyText2, StyledHeader1, StyledSafeAreaView, StyledTextInput } from "../../styles/global";
 
-type TLoginProps = NativeStackScreenProps<ParamListBase, 'Login'>
+type TLoginProps = NativeStackScreenProps<ParamListBase, "Login">
 
 const Register = ({ navigation }: TLoginProps) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const handleRegisterPress = () => {
-        navigation.navigate('Login');
+        navigation.navigate("Login");
     }
 
     return (
         <StyledSafeAreaView>
-            <StyledView style={{ marginTop: 'auto' }}>
+            <StyledView style={{ marginTop: "auto" }}>
                 <StyledHeaderView>
-                    <StyledHeader1 style={{ fontWeight: '700' }}>Register</StyledHeader1>
+                    <StyledHeader1 style={{ fontWeight: "700" }}>Register</StyledHeader1>
                     <StyledBodyText1 style={{ opacity: 0.3 }}>Create an account so you can access your information on other platforms!</StyledBodyText1>
                 </StyledHeaderView>
 
@@ -56,15 +56,15 @@ const Register = ({ navigation }: TLoginProps) => {
                     <StyledSectionView>
                         <StyledInputView>
                             <StyledBodyText2>Email</StyledBodyText2>
-                            <StyledTextInput id='email' placeholder="Enter your email" onChangeText={setEmail} />
+                            <StyledTextInput id="email" placeholder="Enter your email" onChangeText={setEmail} />
                         </StyledInputView>
                         <StyledInputView>
                             <StyledBodyText2>Password</StyledBodyText2>
-                            <StyledTextInput id='password' placeholder="Enter your password" onChangeText={setPassword} />
+                            <StyledTextInput id="password" placeholder="Enter your password" onChangeText={setPassword} />
                         </StyledInputView>
                         <StyledInputView>
                             <StyledBodyText2>Confirm Password</StyledBodyText2>
-                            <StyledTextInput id='confirm_password' placeholder="Re-enter your password" onChangeText={setConfirmPassword} />
+                            <StyledTextInput id="confirm_password" placeholder="Re-enter your password" onChangeText={setConfirmPassword} />
                         </StyledInputView>
                     </StyledSectionView>
 
@@ -72,7 +72,7 @@ const Register = ({ navigation }: TLoginProps) => {
                         <StyledButtonLabel>Create an Account</StyledButtonLabel>
                     </StyledButtonContainer>
 
-                    <StyledCenterText>Already have an account? <Text style={{ fontWeight: '700' }} onPress={handleRegisterPress}>Login</Text></StyledCenterText>
+                    <StyledCenterText>Already have an account? <Text style={{ fontWeight: "700" }} onPress={handleRegisterPress}>Login</Text></StyledCenterText>
                 </StyledSectionViewMd>
             </StyledView>
         </StyledSafeAreaView>
