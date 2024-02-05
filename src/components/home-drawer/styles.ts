@@ -11,6 +11,10 @@ interface StyledDrawerButtonProps extends TouchableOpacityProps {
   buttonName: ButtonName;
 }
 
+const StyledScrollView = styled.ScrollView`
+height: 100%;
+`
+
 const StyledBottomSheetModal = styled.View`
   background-color: white;
   padding: 16px;
@@ -112,5 +116,6 @@ export {
     StyledDrawerButton,
     StyledButtonText,
     StyledConfirmBtn,
-    StyledConfirmTxt
+    StyledConfirmTxt,
+    StyledScrollView
 };

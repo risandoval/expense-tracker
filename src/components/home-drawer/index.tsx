@@ -7,7 +7,8 @@ import {
     StyledDrawerButton,
     StyledButtonText,
     StyledConfirmBtn,
-    StyledConfirmTxt
+    StyledConfirmTxt,
+    StyledScrollView
 } from './styles'
 
 type ButtonName = 'Income' | 'Expense' | 'Transfer';
@@ -150,9 +151,10 @@ const HomeDrawer = () => {
         }
     };
 
+
     return (
         <SafeAreaView>
-            <ScrollView>
+            <StyledScrollView>
                 <StyledColumnView>
                     <StyledRowView>
                         <StyledDrawerButton
@@ -220,19 +222,19 @@ const HomeDrawer = () => {
                             />
                         </StyledFormField>
                     </StyledFormCont> */}
-
+                    
                     {renderForm()}
 
                     <StyledRowView>
                         <StyledConfirmBtn>
-                            <StyledConfirmTxt> 
+                            <StyledConfirmTxt>
                                 Confirm
                             </StyledConfirmTxt>
                         </StyledConfirmBtn>
                     </StyledRowView>
 
                 </StyledColumnView>
-            </ScrollView>
+            </StyledScrollView>
         </SafeAreaView>
     )
 }
