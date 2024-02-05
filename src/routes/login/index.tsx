@@ -25,8 +25,12 @@ const Login = ({ navigation }: TLoginProps) => {
     const [password, setPassword] = useState('');
 
     const handleAsGuestPress = () => {
-        navigation.navigate('HomeNavigator', { screen: "Home" });
+        navigation.navigate('HomeBottomTab', { screen: "Home" });
     };
+
+    const handleRegisterPress = () => {
+        navigation.navigate('Register');
+    }
 
     return (
         <StyledSafeAreaView>
@@ -70,7 +74,7 @@ const Login = ({ navigation }: TLoginProps) => {
                         <StyledButtonLabel>Login</StyledButtonLabel>
                     </StyledButtonContainer>
 
-                    <StyledCenterText>Don't have an account? <Text style={{ fontWeight: '700' }}>Register</Text></StyledCenterText>
+                    <StyledCenterText>Don't have an account? <Text style={{ fontWeight: '700' }} onPress={handleRegisterPress}>Register</Text></StyledCenterText>
                 </StyledSectionViewMd>
             </StyledView>
         </StyledSafeAreaView>
