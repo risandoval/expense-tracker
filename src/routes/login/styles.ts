@@ -18,12 +18,14 @@ const StyledSectionView = styled.View`
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 `;
 
 const StyledSectionViewMd = styled.View`
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 100%;
 `;
 
 const StyledCenterText = styled.Text`
