@@ -63,7 +63,7 @@ const Home = () => {
                     {/* add new screens below \/ */}
 
                     <StyledMainView>
-                        <HomeSection key='accounts' label="Accounts" headerComponents={
+                        <HomeSection label="Accounts" headerComponents={
                             [
                                 <TouchableOpacity>
                                     <Text>+</Text>
@@ -87,7 +87,7 @@ const Home = () => {
                             </StyledAccountsView>
                         </HomeSection>
 
-                        <HomeSection key='budget' label="Budget">
+                        <HomeSection label="Budget">
                             <StyledBudgetsView>
                                 <FlatList
                                     style={{
@@ -103,7 +103,7 @@ const Home = () => {
                             </StyledBudgetsView>
                         </HomeSection>
 
-                        <HomeSection key='goals' label="Goals">
+                        <HomeSection label="Goals">
                             <StyledSavingsView>
                                 <FlatList
                                     style={{
@@ -119,7 +119,7 @@ const Home = () => {
                             </StyledSavingsView>
                         </HomeSection>
 
-                        <HomeSection key='recent-transactions' label="Recent Transactions">
+                        <HomeSection label="Recent Transactions">
                             <RecentTransactionGroup
                                 date=''
                             >

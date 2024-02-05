@@ -74,7 +74,7 @@ const Login = ({ navigation }: TLoginProps) => {
                         <StyledButtonLabel>Login</StyledButtonLabel>
                     </StyledButtonContainer>
 
-                    <StyledCenterText>Don"t have an account? <Text style={{ fontWeight: "700" }} onPress={handleRegisterPress}>Register</Text></StyledCenterText>
+                    <StyledCenterText>Don't have an account? <Text style={{ fontWeight: "700" }} onPress={handleRegisterPress}>Register</Text></StyledCenterText>
                 </StyledSectionViewMd>
             </StyledView>
         </StyledSafeAreaView>
