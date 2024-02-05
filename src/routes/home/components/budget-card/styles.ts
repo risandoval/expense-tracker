@@ -2,19 +2,25 @@ import styled from "styled-components/native"
 import { appColors } from "../../../../styles/global"
 
 
-
 const StyledBudgetCardView = styled.View`
-    width: auto;
-    aspect-ratio: 1/1;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: ${appColors.green};
+    position: relative;
     border-radius: 5px;
-    align-self: center;
+    background-color: ${p => p.theme.cardColor};
     margin: 0px 10px;
-    gap: 10px;
+    overflow: hidden;
+`
+
+type TCardBackground = {
+    percent: string
+}
+
+const StyledBudgetCardBackgroundView = styled.View<TCardBackground>`
+    position: absolute;
+    background-color: #25B570;
+    top: ${p => p.percent};
+    right: 0;
+    left: 0;
+    bottom: 0;
 `
 
 const StyledBudgetAmount = styled.View`
@@ -25,5 +31,6 @@ const StyledBudgetAmount = styled.View`
 
 export {
     StyledBudgetCardView,
-    StyledBudgetAmount
+    StyledBudgetAmount,
+    StyledBudgetCardBackgroundView
 }
