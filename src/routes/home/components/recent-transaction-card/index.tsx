@@ -3,7 +3,10 @@ import styled from 'styled-components/native'
 import { StyledBodyText2, StyledHeader3 } from '../../../../styles/global'
 import { StyledAccountTypeText, StyledLabelView, StyledLeftSideView, StyledRecentTransactionCardView } from './styles'
 
-const RecentTransactionCard = () => {
+const RecentTransactionCard = ({...props}) => {
+  const {recentTransaction} = props.recentTransaction;
+
+
   return (
     <StyledRecentTransactionCardView>
       <StyledLeftSideView>

@@ -33,6 +33,10 @@ const StyledCenterText = styled.Text`
 const StyledSectionHeaderView = styled.View`
     padding: 0px 10px;
     display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 `
 
 // Input text

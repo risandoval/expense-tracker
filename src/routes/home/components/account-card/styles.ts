@@ -27,6 +27,7 @@ const StyledAccountCardSubDetails = styled.View`
     width: 100%;
     justify-content: space-between;
     padding: 10px;
+    background-color: #00000010;
 `
 
 export {

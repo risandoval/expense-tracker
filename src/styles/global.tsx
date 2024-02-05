@@ -7,32 +7,42 @@ const getStatusBarHeight = () => {
 
 export type TTheme = {
     fontColor: string;
+    invertedFontColor: string;
     placeholderTxtColor: string;
     backgroundColor: string;
+    invertedBackgroundColor: string;
     btnFieldBgColor: string;
+    cardColor: string;
 }
 
 export const darkTheme: TTheme = {
     fontColor: '#FAFAFA',
+    invertedFontColor: '#17181C',
     placeholderTxtColor: '#d8d8d8',
     backgroundColor: '#17181C',
-    btnFieldBgColor: '#494d5a'
+    invertedBackgroundColor: '#FAFAFA',
+    btnFieldBgColor: '#494d5a',
+    cardColor: '#22232c',
 }
 
 export const lightTheme: TTheme = {
     fontColor: '#17181C',
+    invertedFontColor: '#FAFAFA',
     placeholderTxtColor: '#777777',
     backgroundColor: '#FAFAFA',
-    btnFieldBgColor: '#dfe0e6'
+    invertedBackgroundColor: '#17181C',
+    btnFieldBgColor: '#dfe0e6',
+    cardColor: '#EEEEEE',
 }
 
 // yung mga kulay na ginagamit dito pero pag apektado ng light mode darkmode dun sa taas ilagay
 export const appColors = {
-    green: '#8AC186',
-    yellow: '#FFD47F',
-    violet: '#7768D6',
+    green: '#25B570',
+    yellow: '#D38944',
+    violet: '#8C43A6',
     darkBlue: '#17181C',
-    white: '#FAFAFA'
+    white: '#FAFAFA',
+    cardIconBackground: '#00000010',
 }
 
 const StyledSafeAreaView = styled.SafeAreaView`

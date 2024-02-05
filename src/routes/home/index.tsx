@@ -10,7 +10,7 @@ import {
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { StyledBodyText1, StyledSafeAreaView } from '../../styles/global';
 import { HomeSection } from './components/home-section';
-import { Button, FlatList, Text, View } from 'react-native';
+import { Button, FlatList, Text, TouchableOpacity, View } from 'react-native';
 import {
     useFonts,
     Lexend_100Thin,
@@ -26,7 +26,10 @@ import {
 import AccountCard from './components/account-card';
 import { BudgetCard } from './components/budget-card';
 import { RecentTransactionCard } from './components/recent-transaction-card';
-
+import { GoalCard } from './components/goal-card';
+import { StyledRecentTrasactionGroupView } from './components/recent-transaction-group/style';
+import { RecentTransactionGroup } from './components/recent-transaction-group';
+import { user } from '../../dummy_data/users';
 
 const Home = () => {
     let [fontsLoaded] = useFonts({
@@ -43,26 +46,7 @@ const Home = () => {
 
     const { theme, toggleTheme } = useContext(ThemeContext);
 
-    const _accounts = [
-        {
-            id: '1',
-            name: 'Cash on Hand',
-            amount: 'P 500.00',
-            type: 'Cash'
-        },
-        {
-            id: '2',
-            name: 'GCash',
-            amount: 'P 1,500.00',
-            type: 'E-Wallet'
-        },
-        {
-            id: '3',
-            name: 'GCash',
-            amount: 'P 1,500.00',
-            type: 'E-Wallet'
-        }
-    ]
+
 
     if (!fontsLoaded) {
         return <Text> Loading </Text>
@@ -79,16 +63,22 @@ const Home = () => {
                     {/* add new screens below \/ */}
 
                     <StyledMainView>
-                        <HomeSection label="Accounts">
+                        <HomeSection key='accounts' label="Accounts" headerComponents={
+                            [
+                                <TouchableOpacity>
+                                    <Text>+</Text>
+                                </TouchableOpacity>
+                            ]
+                        }>
                             <StyledAccountsView>
                                 <FlatList
                                     style={{
                                         overflow: "visible",
                                         paddingVertical: 10,
                                     }}
-                                    data={_accounts}
+                                    data={user.accounts}
                                     renderItem={AccountCard}
-                                    keyExtractor={item => item.id}
+                                    keyExtractor={item => item.id.toString()}
                                     horizontal
                                     showsHorizontalScrollIndicator={false}
                                 />
@@ -97,34 +87,48 @@ const Home = () => {
                             </StyledAccountsView>
                         </HomeSection>
 
-                        <HomeSection label="Budget">
+                        <HomeSection key='budget' label="Budget">
                             <StyledBudgetsView>
                                 <FlatList
                                     style={{
                                         overflow: "visible",
                                         paddingVertical: 10,
                                     }}
-                                    data={_accounts}
+                                    data={user.budgets}
                                     renderItem={BudgetCard}
-                                    keyExtractor={item => item.id}
+                                    keyExtractor={item => item.id.toString()}
                                     horizontal
                                     showsHorizontalScrollIndicator={false}
                                 />
                             </StyledBudgetsView>
                         </HomeSection>
 
-                        <HomeSection label="Goals">
+                        <HomeSection key='goals' label="Goals">
                             <StyledSavingsView>
-                                <StyledBodyText1>Test</StyledBodyText1>
+                                <FlatList
+                                    style={{
+                                        overflow: "visible",
+                                        paddingVertical: 10,
+                                    }}
+                                    data={user.goals}
+                                    renderItem={GoalCard}
+                                    keyExtractor={item => item.id.toString()}
+                                    horizontal
+                                    showsHorizontalScrollIndicator={false}
+                                />
                             </StyledSavingsView>
                         </HomeSection>
 
-                        <HomeSection label="Recent Transactions">
-                            <StyledRecentTransactionsView>
-                                {
-                                    _accounts.map((recentTransaction, index) => <RecentTransactionCard key={index} />)
-                                }
-                            </StyledRecentTransactionsView>
+                        <HomeSection key='recent-transactions' label="Recent Transactions">
+                            <RecentTransactionGroup
+                                date=''
+                            >
+                                <StyledRecentTransactionsView>
+                                    {
+                                        user.transactions.map((recentTransaction, index) => <RecentTransactionCard recentTransaction={recentTransaction} key={index} />)
+                                    }
+                                </StyledRecentTransactionsView>
+                            </RecentTransactionGroup>
                         </HomeSection>
 
                     </StyledMainView>

@@ -6,7 +6,7 @@ const StyledRecentTransactionCardView = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
-    padding: 10px;
+    padding: 10px 0;
 `
 
 const StyledLeftSideView = styled.View`

@@ -32,8 +32,6 @@ const StyledBudgetsView = styled.View`
 const StyledSavingsView = styled.View`
   display: flex;
   flex-direction: column;
-  height: 300px;
-  background-color: green;
 `
 
 const StyledRecentTransactionsView = styled.View`
