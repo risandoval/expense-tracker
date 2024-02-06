@@ -7,7 +7,14 @@ const incomeForm = () => {
             <StyledFormField>
                 <StyledBodyText2>Income - Date</StyledBodyText2>
                 <StyledTextInput
-                    placeholder="Date Picker and Time"
+                    placeholder="Date Picker"
+                />
+            </StyledFormField>
+
+            <StyledFormField>
+                <StyledBodyText2>Time</StyledBodyText2>
+                <StyledTextInput
+                    placeholder="Time Picker"
                 />
             </StyledFormField>
 
