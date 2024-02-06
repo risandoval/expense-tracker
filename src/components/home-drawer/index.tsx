@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { SafeAreaView, ScrollView } from 'react-native'
-import { StyledBodyText2, StyledFormCont, StyledFormField, StyledTextInput } from '../../styles/global'
+import { StyledBodyText2, StyledFormContainer, StyledFormField, StyledTextInput } from '../../styles/global'
 import {
     StyledColumnView,
     StyledRowView,
     StyledDrawerButton,
     StyledButtonText,
-    StyledConfirmBtn,
-    StyledConfirmTxt
+    StyledConfirmButton,
+    StyledConfirmText
 } from './styles'
 
 type ButtonName = 'Income' | 'Expense' | 'Transfer';
@@ -23,7 +23,7 @@ const HomeDrawer = () => {
         switch (activeButton) {
             case 'Income':
                 return (
-                    <StyledFormCont>
+                    <StyledFormContainer>
                         <StyledFormField>
                             <StyledBodyText2>Income - Date</StyledBodyText2>
                             <StyledTextInput
@@ -58,11 +58,11 @@ const HomeDrawer = () => {
                                 placeholder="Optional Note"
                             />
                         </StyledFormField>
-                    </StyledFormCont>
+                    </StyledFormContainer>
                 );
             case 'Expense':
                 return (
-                    <StyledFormCont>
+                    <StyledFormContainer>
                         <StyledFormField>
                             <StyledBodyText2>Expense - Date</StyledBodyText2>
                             <StyledTextInput
@@ -97,11 +97,11 @@ const HomeDrawer = () => {
                                 placeholder="Optional Note"
                             />
                         </StyledFormField>
-                    </StyledFormCont>
+                    </StyledFormContainer>
                 );
             case 'Transfer':
                 return (
-                    <StyledFormCont>
+                    <StyledFormContainer>
                         <StyledFormField>
                             <StyledBodyText2>Date</StyledBodyText2>
                             <StyledTextInput
@@ -143,7 +143,7 @@ const HomeDrawer = () => {
                                 placeholder="Optional Note"
                             />
                         </StyledFormField>
-                    </StyledFormCont>
+                    </StyledFormContainer>
                 );
             default:
                 return null;
@@ -184,7 +184,7 @@ const HomeDrawer = () => {
                         </StyledDrawerButton>
                     </StyledRowView>
 
-                    {/* <StyledFormCont>
+                    {/* <StyledFormContainer>
                         <StyledFormField>
                             <StyledBodyText2>Date</StyledBodyText2>
                             <StyledTextInput
@@ -219,16 +219,16 @@ const HomeDrawer = () => {
                                 placeholder="Optional Note"
                             />
                         </StyledFormField>
-                    </StyledFormCont> */}
+                    </StyledFormContainer> */}
 
                     {renderForm()}
 
                     <StyledRowView>
-                        <StyledConfirmBtn>
-                            <StyledConfirmTxt> 
+                        <StyledConfirmButton>
+                            <StyledConfirmText> 
                                 Confirm
-                            </StyledConfirmTxt>
-                        </StyledConfirmBtn>
+                            </StyledConfirmText>
+                        </StyledConfirmButton>
                     </StyledRowView>
 
                 </StyledColumnView>

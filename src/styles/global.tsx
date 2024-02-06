@@ -7,23 +7,23 @@ const getStatusBarHeight = () => {
 
 export type TTheme = {
     fontColor: string;
-    placeholderTxtColor: string;
+    placeholderFontColor: string;
     backgroundColor: string;
-    btnFieldBgColor: string;
+    buttonFieldBackgroundColor: string;
 }
 
 export const darkTheme: TTheme = {
     fontColor: '#FAFAFA',
-    placeholderTxtColor: '#d8d8d8',
+    placeholderFontColor: '#d8d8d8',
     backgroundColor: '#17181C',
-    btnFieldBgColor: '#494d5a'
+    buttonFieldBackgroundColor: '#494d5a'
 }
 
 export const lightTheme: TTheme = {
     fontColor: '#17181C',
-    placeholderTxtColor: '#777777',
+    placeholderFontColor: '#777777',
     backgroundColor: '#FAFAFA',
-    btnFieldBgColor: '#dfe0e6'
+    buttonFieldBackgroundColor: '#dfe0e6'
 }
 
 // yung mga kulay na ginagamit dito pero pag apektado ng light mode darkmode dun sa taas ilagay
@@ -82,7 +82,7 @@ const StyledBodyText3 = styled.Text`
 `
 
 // form input fields
-const StyledFormCont = styled.View`
+const StyledFormContainer = styled.View`
   display: flex;
   flex-direction: column;
   margin: 0 10px 10px;
@@ -97,9 +97,9 @@ const StyledFormField = styled.View`
 `
 
 const StyledTextInput = styled.TextInput.attrs(props => ({
-    placeholderTextColor: props.theme.placeholderTxtColor,
+    placeholderTextColor: props.theme.placeholderFontColor,
   }))`
-    background-color: ${p => p.theme.btnFieldBgColor};  
+    background-color: ${p => p.theme.buttonFieldBackgroundColor};  
     padding: 10px;
     border-radius: 5px;
     font-size: 17px;
@@ -114,7 +114,7 @@ export {
     StyledBodyText1,
     StyledBodyText2,
     StyledBodyText3,
-    StyledFormCont,
+    StyledFormContainer,
     StyledFormField,
     StyledTextInput
 }
