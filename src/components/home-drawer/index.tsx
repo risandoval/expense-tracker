@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, ScrollView } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import {
     StyledColumnView,
     StyledRowView,
@@ -8,6 +8,7 @@ import {
     StyledConfirmButton,
     StyledConfirmText
 } from './styles'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { incomeForm } from './incomeForm'
 import { expenseForm } from './expenseForm'
 import { transferForm } from './transferForm'
@@ -36,7 +37,7 @@ const HomeDrawer = () => {
 
     return (
         <SafeAreaView>
-            <ScrollView>
+            <KeyboardAwareScrollView>
                 <StyledColumnView>
                     <StyledRowView>
                         <StyledDrawerButton
@@ -79,7 +80,7 @@ const HomeDrawer = () => {
                     </StyledRowView>
 
                 </StyledColumnView>
-            </ScrollView>
+            </KeyboardAwareScrollView>
         </SafeAreaView>
     )
 }
